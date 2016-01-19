@@ -158,7 +158,7 @@ return [
         
         
         'Collective\Html\HtmlServiceProvider',
-        'Chumper\Datatable\DatatableServiceProvider',
+        //'Chumper\Datatable\DatatableServiceProvider',
 
     ],
 
@@ -207,7 +207,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
-        'Datatable' => 'Chumper\Datatable\Facades\DatatableFacade',
+        //'Datatable' => 'Chumper\Datatable\Facades\DatatableFacade',
 
     ],
 
