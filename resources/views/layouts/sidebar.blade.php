@@ -34,13 +34,15 @@
               </ul>
             </li>
             
-            <li class="treeview">
+            <li class="{{ (
+                        Request::is('data_inventori*') 
+                        )?'active':'' }} treeview">
               <a href="#">
                 <i class="fa fa-table"></i> <span>Master Data Inventori</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i>Subjek Data</a></li>
+                <li {{ Request::is('data_inventori*')?'class=active':'' }} ><a href="{{ action('DataInventoriController@index')}}"><i class="fa fa-circle-o"></i>Data Inventori</a></li>
                 <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
               </ul>
             </li>

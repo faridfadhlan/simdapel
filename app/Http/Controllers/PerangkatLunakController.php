@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Chumper\Datatable\Datatable;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -12,8 +13,8 @@ class PerangkatLunakController extends Controller
 {
     //
     public function index() {
-        $pl_data = \App\PerangkatLunak::with('company','license')->get();
-        return view('perangkat_lunak.index', ['pl_data'=> $pl_data]);
+        $pl_data = \App\PerangkatLunak::with('company','license')->paginate(10);
+        return view('perangkat_lunak.index', compact('pl_data'));
     }
     
     public function create() {
@@ -85,5 +86,24 @@ class PerangkatLunakController extends Controller
         $perangkatlunak->operator_id = '1';
         $perangkatlunak->save();        
         return redirect('perangkatlunak');
+    }
+    
+    public function search() {
+        $keyword = Input::get($keyword);
+        $perangkatlunak = \App\PerangkatLunak::search(Input::get($keyword))->get();
+        print_r($perangkatlunak);
+    }
+    
+    public function test() {
+        return view('perangkat_lunak.test');
+    }
+    
+    public function getDatatable()
+    {
+        return \Chumper\Datatable\Datatable::collection(\App\PerangkatLunak::all(array('id','nama')))
+        ->showColumns('id', 'nama')
+        ->searchColumns('nama')
+        ->orderColumns('id','nama')
+        ->make();
     }
 }

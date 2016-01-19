@@ -4,9 +4,63 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9ec89bec17364dfda7ccdcaa6fce102d",
-    "content-hash": "0feb6af5bef0e094e776fba476c27e7c",
+    "hash": "492e0bc6904f7a2a550b0f7f8d22ce5e",
+    "content-hash": "2e5786ce75c641d43e237afbff2e951b",
     "packages": [
+        {
+            "name": "chumper/datatable",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Chumper/Datatable.git",
+                "reference": "546e8768d7987b0d9a8501e67432309349ef5504"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Chumper/Datatable/zipball/546e8768d7987b0d9a8501e67432309349ef5504",
+                "reference": "546e8768d7987b0d9a8501e67432309349ef5504",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0",
+                "illuminate/support": "~5.0",
+                "illuminate/view": "~5.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "orchestra/testbench": "3.1.*",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Chumper\\Datatable": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Plaschke",
+                    "email": "github@nilsplaschke.de",
+                    "homepage": "http://nilsplaschke.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is a laravel 4 package for the server and client side of datatablaes at http://datatables.net/",
+            "homepage": "http://github.com/Chumper/datatable",
+            "keywords": [
+                "ajax",
+                "datatables",
+                "jquery",
+                "laravel"
+            ],
+            "abandoned": "OpenSkill/Datatable",
+            "time": "2015-11-23 21:33:41"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.0.0",
@@ -739,6 +793,52 @@
                 "time"
             ],
             "time": "2015-11-04 20:07:17"
+        },
+        {
+            "name": "nicolaslopezj/searchable",
+            "version": "1.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nicolaslopezj/searchable.git",
+                "reference": "054f14f6b89aec22c21629f9a5e4900e4ac82390"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nicolaslopezj/searchable/zipball/054f14f6b89aec22c21629f9a5e4900e4ac82390",
+                "reference": "054f14f6b89aec22c21629f9a5e4900e4ac82390",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "illuminate/database": "4.2.x|~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nicolaslopezj\\Searchable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Lopez",
+                    "email": "nicolaslopezj@me.com"
+                }
+            ],
+            "description": "Eloquent model search trait.",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "model",
+                "search",
+                "searchable"
+            ],
+            "time": "2016-01-07 14:15:41"
         },
         {
             "name": "nikic/php-parser",
@@ -3057,7 +3157,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "chumper/datatable": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -3,10 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class PerangkatLunak extends Model
 {
-    //
+    use SearchableTrait;
+    protected $searchable = [
+        'columns' => [
+            'kode' => 10,
+            'nama' => 10
+        ],
+    ];
+    
     protected $table = 'pl_data';
     public $timestamps = false;
     protected $primaryKey='id';

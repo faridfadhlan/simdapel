@@ -3151,5 +3151,109 @@
         ],
         "description": "HTML and Form Builders for the Laravel Framework",
         "homepage": "http://laravelcollective.com"
+    },
+    {
+        "name": "nicolaslopezj/searchable",
+        "version": "1.7.2",
+        "version_normalized": "1.7.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nicolaslopezj/searchable.git",
+            "reference": "054f14f6b89aec22c21629f9a5e4900e4ac82390"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nicolaslopezj/searchable/zipball/054f14f6b89aec22c21629f9a5e4900e4ac82390",
+            "reference": "054f14f6b89aec22c21629f9a5e4900e4ac82390",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "illuminate/database": "4.2.x|~5.0",
+            "php": ">=5.4.0"
+        },
+        "time": "2016-01-07 14:15:41",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Nicolaslopezj\\Searchable\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Lopez",
+                "email": "nicolaslopezj@me.com"
+            }
+        ],
+        "description": "Eloquent model search trait.",
+        "keywords": [
+            "database",
+            "eloquent",
+            "laravel",
+            "model",
+            "search",
+            "searchable"
+        ]
+    },
+    {
+        "name": "chumper/datatable",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Chumper/Datatable.git",
+            "reference": "546e8768d7987b0d9a8501e67432309349ef5504"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Chumper/Datatable/zipball/546e8768d7987b0d9a8501e67432309349ef5504",
+            "reference": "546e8768d7987b0d9a8501e67432309349ef5504",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/config": "~5.0",
+            "illuminate/support": "~5.0",
+            "illuminate/view": "~5.0",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "dev-master",
+            "orchestra/testbench": "3.1.*",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2015-11-23 21:33:41",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Chumper\\Datatable": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nils Plaschke",
+                "email": "github@nilsplaschke.de",
+                "homepage": "http://nilsplaschke.de",
+                "role": "Developer"
+            }
+        ],
+        "description": "This is a laravel 4 package for the server and client side of datatablaes at http://datatables.net/",
+        "homepage": "http://github.com/Chumper/datatable",
+        "keywords": [
+            "ajax",
+            "datatables",
+            "jquery",
+            "laravel"
+        ],
+        "abandoned": "OpenSkill/Datatable"
     }
 ]

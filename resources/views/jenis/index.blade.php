@@ -33,6 +33,10 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
             <li>Master Perangkat Lunak</li>
             <li class="active">Master Jenis Perangkat Lunak</li>
           </ol>
+            <br />
+            <div>
+                <a class="btn btn-block btn-primary" style="display:inline;" href="{{ action('JenisController@create') }}">Tambah Jenis Perangkat Lunak</a>
+            </div>
         </section>
 
         <!-- Main content -->

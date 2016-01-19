@@ -33,6 +33,10 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
             <li>Master Media Perangkat Lunak</li>
             <li class="active">Media Perangkat Lunak</li>
           </ol>
+            <br />
+            <div>
+                <a class="btn btn-block btn-primary" style="display:inline;" href="{{ action('MediaController@create') }}">Tambah Media Perangkat Lunak</a>
+            </div>
         </section>
 
         <!-- Main content -->

@@ -15,7 +15,7 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li>Master Jenis Perangkat Lunak</li>
-            <li class="active">Edit Jenis Perangkat Lunak</li>
+            <li class="active">Tambah Jenis Perangkat Lunak</li>
           </ol>
         </section>
 
@@ -23,11 +23,11 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
 <section class="content">
 <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Edit Jenis</h3>
+                  <h3 class="box-title">Tambah Jenis Perangkat Lunak</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                {{ Form::open(array('route' => array('update_jenis', $jenis->id), 'method'=>'PUT')) }}
-@include('jenis.form')
+                {{ Form::open(array('route' => array('simpan_jenis'), 'method'=>'POST')) }}
+                @include('jenis.form')
 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Simpan</button>
                   </div>

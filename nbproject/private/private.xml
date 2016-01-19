@@ -2,6 +2,34 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/perangkat_lunak/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/app/PerangkatLunak.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/app/Http/Controllers/MediaController.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/app/Http/Controllers/PerangkatLunakController.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/layouts/main.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/app/Http/Controllers/CompanyController.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/app/Http/routes.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/license/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/jenis/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/layouts/header.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/license/create.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/media/form.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/media/create.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/jenis/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/jenis/form.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/jenis/create.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/composer.json</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/media/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/app/Http/Controllers/DataInventoriController.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/app/Http/Controllers/LicenseController.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/app/Http/Controllers/JenisController.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/config/app.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/media/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/license/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/app/DataInventori.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/perangkat_lunak/test.blade.php</file>
+            <file>file:/C:/xampp/htdocs/simdapel/resources/views/license/form.blade.php</file>
+        </group>
     </open-files>
 </project-private>

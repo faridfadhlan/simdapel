@@ -34,17 +34,17 @@ class='active'
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Master Data Perangkat Lunak
+            Master Data Inventori
             <!--<small>Control panel</small>-->
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Master Data Perangkat Lunak</li>
-            <li class="active">Data Perangkat Lunak</li>
+            <li>Master Data Inventori</li>
+            <li class="active">Data Inventori</li>
           </ol>
             <br />
             <div>
-                <a class="btn btn-block btn-primary" style="display:inline;" href="{{ action('PerangkatLunakController@create') }}">Tambah Perangkat Lunak</a>
+                <a class="btn btn-block btn-primary" style="display:inline;" href="{{ action('DataInventoriController@create') }}">Tambah Data Inventori</a>
             </div>
         </section>
 
@@ -55,31 +55,33 @@ class='active'
                   <table id="tabel1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th width='10%' style='text-align: center;vertical-align: center;'>Kode</th>
+                        <th style='text-align: center;vertical-align: center;'>No CD</th>
+                        <th style='text-align: center;vertical-align: center;'>Label CD</th>
                         <th style='text-align: center;vertical-align: center;'>Nama</th>
-                        <th width='10%' style='text-align: center;vertical-align: center;'>Jumlah Media</th>
-                        <th width='20%' style='text-align: center;vertical-align: center;'>Company</th>
-                        <th width='20%' style='text-align: center;vertical-align: center;'>Lisensi</th>
-                        <th width='10%' style='text-align: center;vertical-align: center;'>Aksi</th>
+                        <th style='text-align: center;vertical-align: center;'>Tahun</th>
+                        <th style='text-align: center;vertical-align: center;'>Rincian</th>
+                        <th style='text-align: center;vertical-align: center;'>Format</th>
+                        <th style='text-align: center;vertical-align: center;'>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach($pl_data as $data)
+                    @foreach($data_inventoris as $data)
                       <tr>
-                        <td align='center'>{{ $data->kode }}</td>
-                        <td>{{ $data->nama }}</td>
-                        <td align='center'>{{ $data->jumlah_media }}</td>
-                        <td>{{ $data->company['nama_company'] }}</td>
-                        <td>{{ $data->license['nama_license'] }}</td>
+                        <td align='center'>{{ $data->no_cd }}</td>
+                        <td>{{ $data->label_cd }}</td>
+                        <td>{{ $data->nama_data }}</td>
+                        <td align='center'>{{ $data->tahun }}</td>
+                        <td>{{ $data->rincian }}</td>
+                        <td>{{ $data->format }}</td>
                         <td align='center'>
-                            <a href="{{ action('PerangkatLunakController@edit', ['id'=>$data->id]) }}" class="fa fa-edit"></a>
-                            <a href="{{ action('PerangkatLunakController@remove', ['id'=>$data->id]) }}" class="fa fa-remove"></a>
+                            <a href="{{ action('DataInventoriController@edit', ['id'=>$data->id]) }}" class="fa fa-edit"></a>
+                            <a href="{{ action('DataInventoriController@remove', ['id'=>$data->id]) }}" class="fa fa-remove"></a>
                         </td>
                       </tr>
                     @endforeach
                     </tbody>
                   </table>
-                    <div style='float:right;'>{{ $pl_data->render() }}</div>
+                    <div style='float:right;'>{{ $data_inventoris->render() }}</div>
                     <div style='clear:both;'></div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->

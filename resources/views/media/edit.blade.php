@@ -22,8 +22,16 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
 
 <section class="content">
     <div class="box box-primary">
-
+<div class="box-header with-border">
+                  <h3 class="box-title">Edit Media</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                {{ Form::open(array('route' => array('update_media', $media->id), 'method'=>'PUT')) }}
 @include('media.form')
+<div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                  </div>
+                {{ Form::close() }}
     </div>
 
 </section>

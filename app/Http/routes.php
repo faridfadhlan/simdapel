@@ -28,6 +28,9 @@ Route::post('perangkatlunak/save', [
 Route::put('perangkatlunak/update/{id}', [
     'as' => 'update_perangkatlunak', 'uses' => 'PerangkatLunakController@update'
 ]);
+Route::get('perangkatlunak/search', 'PerangkatLunakController@search');
+Route::resource('perangkatlunak/test', 'PerangkatLunakController@test');
+Route::get('api/perangkatlunak', array('as'=>'api.perangkatlunak', 'uses'=>'PerangkatLunakController@getDatatable'));
 
 
 Route::get('company', 'CompanyController@index');
@@ -53,17 +56,36 @@ Route::post('license/simpan_license', [
 ]);
 
 Route::get('media', 'MediaController@index');
+Route::get('media/create', 'MediaController@create');
 Route::get('media/edit/{id}', 'MediaController@edit');
 Route::get('media/remove/{id}', 'MediaController@remove');
-Route::put('media/save/{id}', [
+Route::put('media/update/{id}', [
+    'as' => 'update_media', 'uses' => 'MediaController@update'
+]);
+Route::post('media/simpan_media', [
     'as' => 'simpan_media', 'uses' => 'MediaController@save'
 ]);
 
 Route::get('jenis', 'JenisController@index');
+Route::get('jenis/create', 'JenisController@create');
 Route::get('jenis/edit/{id}', 'JenisController@edit');
 Route::get('jenis/remove/{id}', 'JenisController@remove');
-Route::put('jenis/save/{id}', [
+Route::put('jenis/update/{id}', [
+    'as' => 'update_jenis', 'uses' => 'JenisController@update'
+]);
+Route::post('jenis/simpan_jenis', [
     'as' => 'simpan_jenis', 'uses' => 'JenisController@save'
+]);
+
+Route::get('data_inventori', 'DataInventoriController@index');
+Route::get('data_inventori/create', 'DataInventoriController@create');
+Route::get('data_inventori/edit/{id}', 'DataInventoriController@edit');
+Route::get('data_inventori/remove/{id}', 'DataInventoriController@remove');
+Route::put('data_inventori/update/{id}', [
+    'as' => 'update_data_inventori', 'uses' => 'DataInventoriController@update'
+]);
+Route::post('data_inventori/simpan_data_inventori', [
+    'as' => 'simpan_data_inventori', 'uses' => 'DataInventoriController@save'
 ]);
 
 /*

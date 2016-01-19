@@ -11,6 +11,7 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
 @section('script_bawah')
 <script src="{{ asset('/public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('/public/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+
 <script>
       $(function () {
         $("#tabel1").DataTable({

@@ -19,11 +19,27 @@ class MediaController extends Controller
         return view('media.edit', ['media'=> $media]);
     }
     
-    public function save($id) {    
+    public function update($id) {    
         $media = \App\Media::findOrNew($id);       
         $media->update(array(
             'nama_media'=>Input::get('nama_media')
         ));
+        return redirect('media');
+    }
+    
+    public function create() {
+        $media = new \App\Media;
+        return view(
+                'media.create', 
+                [
+                    'media'=> $media,
+                ]);
+    }
+    
+    public function save() {        
+        $media = new \App\Media;       
+        $media->nama_media = Input::get('nama_media');
+        $media->save();
         return redirect('media');
     }
 }
