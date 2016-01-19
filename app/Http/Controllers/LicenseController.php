@@ -19,11 +19,27 @@ class LicenseController extends Controller
         return view('license.edit', ['license'=> $company]);
     }
     
-    public function save($id) {    
-        $license = \App\License::findOrNew($id);       
+    public function update($id) {    
+        $license = \App\License::find($id);       
         $license->update(array(
             'nama_license'=>Input::get('nama_license')
         ));
+        return redirect('license');
+    }
+    
+    public function create() {
+        $license = new \App\License;
+        return view(
+                'license.create', 
+                [
+                    'license'=> $license,
+                ]);
+    }
+    
+    public function save() {        
+        $license = new \App\License;       
+        $license->nama_license = Input::get('nama_license');
+        $license->save();
         return redirect('license');
     }
 }

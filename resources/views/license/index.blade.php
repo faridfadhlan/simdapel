@@ -33,6 +33,10 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
             <li>Master License Perangkat Lunak</li>
             <li class="active">License Perangkat Lunak</li>
           </ol>
+          <br />
+            <div>
+                <a class="btn btn-block btn-primary" style="display:inline;" href="{{ action('LicenseController@create') }}">Tambah License Perangkat Lunak</a>
+            </div>
         </section>
 
         <!-- Main content -->

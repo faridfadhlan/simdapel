@@ -15,7 +15,7 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li>Master License Perangkat Lunak</li>
-            <li class="active">Edit License Perangkat Lunak</li>
+            <li class="active">Create License Perangkat Lunak</li>
         </ol>
     </section>
 
@@ -23,10 +23,10 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
     <section class="content">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Edit License</h3>
+                <h3 class="box-title">Create License</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            {{ Form::open(array('route' => array('update_license', $license->id), 'method'=>'PUT')) }}
+            {{ Form::open(array('route' => array('simpan_license', $license->id), 'method'=>'POST')) }}
             @include('license.form')
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>

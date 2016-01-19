@@ -42,9 +42,13 @@ Route::post('company/simpan_company', [
 ]);
 
 Route::get('license', 'LicenseController@index');
+Route::get('license/create', 'LicenseController@create');
 Route::get('license/edit/{id}', 'LicenseController@edit');
 Route::get('license/remove/{id}', 'LicenseController@remove');
-Route::put('license/save/{id}', [
+Route::put('license/update/{id}', [
+    'as' => 'update_license', 'uses' => 'LicenseController@update'
+]);
+Route::post('license/simpan_license', [
     'as' => 'simpan_license', 'uses' => 'LicenseController@save'
 ]);
 
