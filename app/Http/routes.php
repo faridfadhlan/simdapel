@@ -16,7 +16,15 @@ Route::get('/', function () {
 });
 
 Route::get('subjek', 'SubjekController@index');
-Route::get('subjek/{id}', 'SubjekController@view');
+Route::get('subjek/create', 'SubjekController@create');
+Route::get('subjek/edit/{id}', 'SubjekController@edit');
+Route::get('subjek/remove/{id}', 'SubjekController@remove');
+Route::put('subjek/update_subjek/{id}', [
+    'as' => 'update_subjek', 'uses' => 'SubjekController@update'
+]);
+Route::post('subjek/simpan_subjek', [
+    'as' => 'simpan_subjek', 'uses' => 'SubjekController@save'
+]);
 
 Route::get('perangkatlunak', 'PerangkatLunakController@index');
 Route::get('perangkatlunak/create', 'PerangkatLunakController@create');

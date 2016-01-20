@@ -8,18 +8,6 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
 <link rel="stylesheet" href="{{ asset('/public/plugins/datatables/dataTables.bootstrap.css') }}">
 @endsection
 
-@section('script_bawah')
-<script src="{{ asset('/public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('/public/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-<script>
-      $(function () {
-        $("#tabel1").DataTable({
-            ordering:false
-        });
-      });
-</script>
-@endsection
-
 @section('content')
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -68,6 +56,8 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
                     @endforeach
                     </tbody>
                   </table>
+                    <div style='float:right;'>{{ $companies->render() }}</div>
+                    <div style='clear:both;'></div>
                 </div><!-- /.box-body -->
               
               </div><!-- /.box -->

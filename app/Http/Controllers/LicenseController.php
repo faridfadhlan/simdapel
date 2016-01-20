@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class LicenseController extends Controller
 {
     public function index() {
-        return view('license.index', ['licenses'=> \App\License::all()]);
+        return view('license.index', ['licenses'=> \App\License::paginate(10)]);
     }
     
     public function edit($id) {

@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class MediaController extends Controller
 {
     public function index() {
-        return view('media.index', ['medias'=> \App\Media::all()]);
+        return view('media.index', ['medias'=> \App\Media::paginate(10)]);
     }
     
     public function edit($id) {

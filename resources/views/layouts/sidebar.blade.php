@@ -35,7 +35,8 @@
             </li>
             
             <li class="{{ (
-                        Request::is('data_inventori*') 
+                        Request::is('data_inventori*') ||
+                        Request::is('subjek*')
                         )?'active':'' }} treeview">
               <a href="#">
                 <i class="fa fa-table"></i> <span>Master Data Inventori</span>
@@ -43,7 +44,7 @@
               </a>
               <ul class="treeview-menu">
                 <li {{ Request::is('data_inventori*')?'class=active':'' }} ><a href="{{ action('DataInventoriController@index')}}"><i class="fa fa-circle-o"></i>Data Inventori</a></li>
-                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                <li {{ Request::is('subjek*')?'class=active':'' }} ><a href="{{ action('SubjekController@index')}}"><i class="fa fa-circle-o"></i>Subjek Data Inventori</a></li>
               </ul>
             </li>
             <li class="treeview">

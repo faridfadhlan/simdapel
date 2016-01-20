@@ -3,31 +3,7 @@
 Sistem Informasi Data Inventori dan Perangkat Lunak
 @endsection
 
-@section('active_pl')
-active
-@endsection
 
-@section('active_pl_1')
-class='active'
-@endsection
-
-@section('script_atas')
-<link rel="stylesheet" href="{{ asset('/public/plugins/datatables/dataTables.bootstrap.css') }}">
-@endsection
-
-@section('script_bawah')
-<script src="{{ asset('/public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('/public/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-<!--
-<script>
-      $(function () {
-        $("#tabel1").DataTable({
-            ordering:false
-        });
-      });
-</script>
--->
-@endsection
 
 @section('content')
 <div class="content-wrapper">
@@ -55,6 +31,7 @@ class='active'
                   <table id="tabel1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
+                          <th style='text-align: center;vertical-align: center;'>No</th>
                         <th style='text-align: center;vertical-align: center;'>No CD</th>
                         <th style='text-align: center;vertical-align: center;'>Label CD</th>
                         <th style='text-align: center;vertical-align: center;'>Nama</th>
@@ -65,23 +42,30 @@ class='active'
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    $page = $data_inventoris->currentPage();
+                            $i=0;
+                    ?>
                     @foreach($data_inventoris as $data)
+                        <?php $i++; ?>
                       <tr>
-                        <td align='center'>{{ $data->no_cd }}</td>
-                        <td>{{ $data->label_cd }}</td>
-                        <td>{{ $data->nama_data }}</td>
-                        <td align='center'>{{ $data->tahun }}</td>
-                        <td>{{ $data->rincian }}</td>
-                        <td>{{ $data->format }}</td>
-                        <td align='center'>
-                            <a href="{{ action('DataInventoriController@edit', ['id'=>$data->id]) }}" class="fa fa-edit"></a>
-                            <a href="{{ action('DataInventoriController@remove', ['id'=>$data->id]) }}" class="fa fa-remove"></a>
-                        </td>
+                          <td align='center'>{{ ((($page-1)*10)+$i) }}</td>
+                            <td align='center'>{{ $data->no_cd }}</td>
+                            <td>{{ $data->label_cd }}</td>
+                            <td>{{ $data->nama_data }}</td>
+                            <td align='center'>{{ $data->tahun }}</td>
+                            <td>{{ $data->rincian }}</td>
+                            <td>{{ $data->format }}</td>
+                            <td align='center'>
+                                <a href="{{ action('DataInventoriController@edit', ['id'=>$data->id]) }}" class="fa fa-edit"></a>
+                                <a href="{{ action('DataInventoriController@remove', ['id'=>$data->id]) }}" class="fa fa-remove"></a>
+                            </td>
                       </tr>
+
                     @endforeach
                     </tbody>
                   </table>
-                    <div style='float:right;'>{{ $data_inventoris->render() }}</div>
+                    <div style='float:right;'>{{ $data_inventoris->links() }}</div>
                     <div style='clear:both;'></div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->

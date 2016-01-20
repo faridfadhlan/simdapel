@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class JenisController extends Controller
 {
     public function index() {
-        return view('jenis.index', ['jenises'=> \App\Jenis::all()]);
+        return view('jenis.index', ['jenises'=> \App\Jenis::paginate(10)]);
     }
     
     public function edit($id) {
