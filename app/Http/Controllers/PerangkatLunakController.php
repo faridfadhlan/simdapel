@@ -12,6 +12,12 @@ use App\Http\Controllers\Controller;
 class PerangkatLunakController extends Controller
 {
     //
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index() {
         $pl_data = \App\PerangkatLunak::with('company','license')->paginate(10);
         return view('perangkat_lunak.index', compact('pl_data'));

@@ -155,10 +155,11 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        'Yajra\Datatables\DatatablesServiceProvider',
         
         
         'Collective\Html\HtmlServiceProvider',
-        'Chumper\Datatable\DatatableServiceProvider',
+        //'Chumper\Datatable\DatatableServiceProvider',
 
     ],
 
@@ -207,7 +208,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
-        'Datatable' => 'Chumper\Datatable\Facades\DatatableFacade',
+        //'Datatables' => 'Yajra\Datatables\Datatables',
+        //'Datatable' => 'Chumper\Datatable\Facades\DatatableFacade',
 
     ],
 

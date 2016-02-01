@@ -22,13 +22,15 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    protected $username = 'username';
+    //protected $loginPath = 'auth/login';
 
     /**
      * Where to redirect users after login / registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new authentication controller instance.
@@ -68,5 +70,15 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    
+    public function is_operator() {
+        if($this->user()->level_id == '4') return true;
+        return false;
+    }
+    
+    public function is_user_bps() {
+        if($this->user()->level_id == '2') return true;
+        return false;
     }
 }

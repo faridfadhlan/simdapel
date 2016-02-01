@@ -7,7 +7,7 @@
               <img src="{{ asset('/public/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>Farid</p>
+              <p>{{ Auth::user()->username }}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -15,6 +15,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
+            @if(Auth::user()->role_id != '3')
             <li class="{{ (
                         Request::is('perangkatlunak*') || 
                         Request::is('company*') || 
@@ -33,6 +34,7 @@
                 <li {{ Request::is('jenis*')?'class=active':'' }}><a href="{{ action('JenisController@index') }}"><i class="fa fa-circle-o"></i>Master Jenis</a></li>
               </ul>
             </li>
+            @endif
             
             <li class="{{ (
                         Request::is('data_inventori*') ||
@@ -57,10 +59,12 @@
                 <i class="fa fa-table"></i> <span>Master Operator</span>
               </a>              
             </li>
+            @if(Auth::user()->role_id=='1' || Auth::user()->role_id=='4')
            <li class="header">TRANSAKSI</li>
-            <li><a href="#"><i class="fa fa-circle-o text-red"></i>Peminjaman Data Inventori</a></li>
+            
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i>Peminjaman Perangkat Lunak</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i>Permintaan Data</a></li>
+            <li><a href="{{ URL::to('permohonan_data/create') }}"><i class="fa fa-circle-o text-aqua"></i>Permintaan Data</a></li>
+            @endif
           </ul>
         </section>
         <!-- /.sidebar -->

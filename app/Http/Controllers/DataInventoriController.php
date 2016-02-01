@@ -9,6 +9,12 @@ use App\Http\Controllers\Controller;
 
 class DataInventoriController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        
+    }
+    
     public function index() {
         $data_inventoris = \Illuminate\Support\Facades\DB::table('data_inventori')->paginate(10);
         return view('data_inventori.index', compact('data_inventoris'));

@@ -11,6 +11,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'user';
+    public $timestamps = false;
+    protected $primaryKey = 'id';
+    
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -23,4 +27,41 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function seksi(){
+        return $this->belongsTo('\App\Seksi', 'seksi_id', 'id');
+    }
+    
+    public function role()
+    {
+            return $this->hasOne('App\Role', 'id', 'role_id');
+    }
+
+    public function hasRole($roles)
+    {
+            $this->have_role = $this->getUserRole();
+
+            
+
+            if(is_array($roles)){
+                    foreach($roles as $need_role){
+                            if($this->checkIfUserHasRole($need_role)) {
+                                    return true;
+                            }
+                    }
+            } else{
+                    return $this->checkIfUserHasRole($roles);
+            }
+            return false;
+    }
+
+    private function getUserRole()
+    {
+            return $this->role()->getResults();
+    }
+
+    private function checkIfUserHasRole($need_role)
+    {
+            return (strtolower($need_role)==strtolower($this->have_role->name)) ? true : false;
+    }
 }
