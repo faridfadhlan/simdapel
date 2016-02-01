@@ -24,8 +24,8 @@
      <div class="row">
          <div class="col-md-12"><h3>Identitas Pemohon Data</h3></div>
     <div class="col-md-6">
-        {{ Form::open(array('url' => 'permohonan_data/simpan', 'method' => 'post')) }}
-    
+        {{ Form::open(array('url' => 'permohonan_data/simpan_individu', 'method' => 'post')) }}
+    {{ Form::hidden('data_inventori_id', $value=$data->data_inventori_id, $attributes=array('class'=>'data_inventori_id')) }}
     <div class="form-group">
         {{ Form::label('jenis_identitas', 'Jenis Identitas') }}
         {{ Form::select('jenis_identitas', ['1'=>'KTP', '2'=>'SIM', '3'=>'Lainnya'],$value=$data->jenis_identitas, $attributes=array('class'=>'form-control','placeholder'=>'Pilih Identitas...')) }}
@@ -43,8 +43,8 @@
         {{ Form::text('umur', $value=$data->umur, $attributes=array('class'=>'form-control','placeholder'=>'Umur...')) }}
     </div>
     <div class="form-group">
-        {{ Form::label('jenis_kelamin', 'Jenis Kelamin') }}
-        {{ Form::select('jenis_kelamin', ['1'=>'Laki-Laki', '2'=>'Perempuan'], $value=$data->jenis_kelamin, $attributes=array('class'=>'form-control','placeholder'=>'Pilih Jenis Kelamin...')) }}
+        {{ Form::label('jk', 'Jenis Kelamin') }}
+        {{ Form::select('jk', ['1'=>'Laki-Laki', '2'=>'Perempuan'], $value=$data->jk, $attributes=array('class'=>'form-control','placeholder'=>'Pilih Jenis Kelamin...')) }}
     </div>
      <div class="form-group">
         {{ Form::label('pendidikan_terakhir', 'Pendidikan Terakhir') }}
@@ -54,12 +54,7 @@
         {{ Form::label('alamat', 'Alamat') }}
         {{ Form::text('alamat', $value=$data->alamat, $attributes=array('class'=>'form-control','placeholder'=>'Alamat...')) }}
     </div>  
-    <div class="form-group">
-        {{ Form::label('data_inventori_id', 'Nama Data') }}
-        {{ Form::hidden('data_inventori_id', $value=$data->data_inventori_id, $attributes=array('id'=>'data_inventori_id')) }}
-        <br /><a href="#" data-toggle="modal" data-target="#myModal2">Browse...</a>
-        &nbsp;&nbsp;&nbsp;<span id="label_data_inventori_id2"></span>
-    </div>
+   
     </div>
     <div class="col-md-6">
     
@@ -72,12 +67,12 @@
         {{ Form::text('pekerjaan', $value=$data->pekerjaan, $attributes=array('class'=>'form-control','placeholder'=>'Pekerjaan...')) }}
     </div>
     <div class="form-group">
-        {{ Form::label('instansi_pekerjaan', 'Instansi Pekerjaan') }}
-        {{ Form::text('instansi_pekerjaan', $value=$data->instansi_pekerjaan, $attributes=array('class'=>'form-control','placeholder'=>'Instansi Pekerjaan...')) }}
+        {{ Form::label('nama_instansi', 'Instansi Pekerjaan') }}
+        {{ Form::text('nama_instansi', $value=$data->nama_instansi, $attributes=array('class'=>'form-control','placeholder'=>'Instansi Pekerjaan...')) }}
     </div>
     <div class="form-group">
         {{ Form::label('email', 'Email') }}
-        {{ Form::text('email', $value=$data->instansi_pekerjaan, $attributes=array('class'=>'form-control','placeholder'=>'Email...')) }}
+        {{ Form::text('email', $value=$data->email, $attributes=array('class'=>'form-control','placeholder'=>'Email...')) }}
     </div>
     <div class="form-group">
         {{ Form::label('data_diminta', 'Keterangan') }}

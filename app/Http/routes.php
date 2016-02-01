@@ -127,10 +127,12 @@ Route::group(['middleware' => 'web'], function () {
     
     Route::group(['middleware' => ['roles','auth'],'roles' => ['admin', 'operator']], function () {
         //Action Permohonan Data
+        Route::get('permohonan_data/index', 'PermohonanDataBPSController@index');
         Route::get('permohonan_data/create', 'PermohonanDataBPSController@create');
         Route::get('permohonan_data/get_modal_data', 'PermohonanDataBPSController@get_modal_data');
         Route::get('permohonan_data/get_ajax_data', 'PermohonanDataBPSController@get_ajax_data');
         Route::post('permohonan_data/simpan', 'PermohonanDataBPSController@simpan');
+        Route::post('permohonan_data/simpan_individu', 'PermohonanDataBPSController@simpan_individu');
     });
     
 });

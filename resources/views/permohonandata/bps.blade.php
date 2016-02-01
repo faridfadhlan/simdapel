@@ -1,5 +1,27 @@
 
     <div class="box-body">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <a class="btn btn-block btn-primary" style="display:inline;" href="#" data-toggle="modal" data-target="#myModal2">Pilih Data...</a>
+                <br />
+                <br />
+                <table id="tes" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Data</th>
+                            <th>Rincian Data</th>
+                            <th>Tahun</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
      <div class="row">
     <div class="col-md-6">
@@ -14,12 +36,7 @@
         <br /><a href="#" data-toggle="modal" data-target="#myModal">Browse...</a>
         &nbsp;&nbsp;&nbsp;<span id="label_pegawai_id"></span>
     </div>
-    <div class="form-group">
-        {{ Form::label('data_inventori_id', 'Nama Data') }}
-        {{ Form::hidden('data_inventori_id', $value=$data->data_inventori_id, $attributes=array('id'=>'data_inventori_id')) }}
-        <br /><a href="#" data-toggle="modal" data-target="#myModal2">Browse...</a>
-        &nbsp;&nbsp;&nbsp;<span id="label_data_inventori_id"></span>
-    </div>
+    
     </div>
     <div class="col-md-6">
     <div class="form-group">

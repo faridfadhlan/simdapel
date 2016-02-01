@@ -63,7 +63,7 @@
            <li class="header">TRANSAKSI</li>
             
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i>Peminjaman Perangkat Lunak</a></li>
-            <li><a href="{{ URL::to('permohonan_data/create') }}"><i class="fa fa-circle-o text-aqua"></i>Permintaan Data</a></li>
+            <li><a href="{{ URL::to('permohonan_data/index') }}"><i class="fa fa-circle-o text-aqua"></i>Permintaan Data</a></li>
             @endif
           </ul>
         </section>

@@ -49,11 +49,14 @@
       
       function pilih_data(id,nama,rincian,tahun) {
           $('#myModal2').modal('hide');
-          $("#tes tbody").append("<tr id='data_"+id+"'><td>"+id+"</td><td>"+nama+"</td><td>"+rincian+"</td><td>"+tahun+"</td><td><a href='#' onclick='hapus("+id+")'>Remove</a></td></tr>");
+          $("#tes tbody").html("<tr id='data_"+id+"'><td>"+id+"</td><td>"+nama+"</td><td>"+rincian+"</td><td>"+tahun+"</td><td><a href='#' onclick='hapus("+id+")'>Remove</a></td></tr>");
+          //document.getElementById('data_inventori_id').value=id;
+          $(".data_inventori_id").val(id);
       }
       
       function hapus(id) {
            $("tr#data_"+id).remove();
+           $(".data_inventori_id").val('');
         }
       
       $('#tabel_pegawai').DataTable();

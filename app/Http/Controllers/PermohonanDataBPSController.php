@@ -16,7 +16,8 @@ class PermohonanDataBPSController extends Controller
     }*/
     
     public function index() {
-        
+        $datas = \App\PermohonanDataBPS::paginate(10);
+        return view('permohonandata.index', ['datas'=>$datas]);
     }
     
     public function create() {
@@ -33,6 +34,27 @@ class PermohonanDataBPSController extends Controller
         $permohonandatabps->data_inventori_id = $request->input('data_inventori_id');
         $permohonandatabps->data_diminta = $request->input('data_diminta');        
         $permohonandatabps->operator_id = '17';
+        $permohonandatabps->save();
+        return redirect('permohonan_data/create');
+    }
+    
+    public function simpan_individu(Request $request) {
+        $permohonandatabps = new \App\PermohonanDataBPS;
+        $permohonandatabps->jenis_identitas = $request->input('jenis_identitas');
+        $permohonandatabps->no_identitas = $request->input('no_identitas');
+        $permohonandatabps->nama = $request->input('nama');
+        $permohonandatabps->umur = $request->input('umur'); 
+        $permohonandatabps->jk = $request->input('jk');
+        $permohonandatabps->pendidikan_terakhir = $request->input('pendidikan_terakhir');
+        $permohonandatabps->alamat = $request->input('alamat');
+        $permohonandatabps->telp = $request->input('telp');
+        $permohonandatabps->pekerjaan = $request->input('pekerjaan');
+        $permohonandatabps->nama_instansi = $request->input('nama_instansi');
+        $permohonandatabps->email = $request->input('email');
+        $permohonandatabps->data_diminta = $request->input('data_diminta');
+        $permohonandatabps->status_id = '1';
+        $permohonandatabps->operator_id = '17';
+        $permohonandatabps->data_inventori_id = $request->input('data_inventori_id');
         $permohonandatabps->save();
         return redirect('permohonan_data/create');
     }
