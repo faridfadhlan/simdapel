@@ -54,14 +54,15 @@
         {{ Form::label('alamat', 'Alamat') }}
         {{ Form::text('alamat', $value=$data->alamat, $attributes=array('class'=>'form-control','placeholder'=>'Alamat...')) }}
     </div>  
-   
-    </div>
-    <div class="col-md-6">
-    
     <div class="form-group">
         {{ Form::label('telp', 'No Telepon') }}
         {{ Form::text('telp', $value=$data->telp, $attributes=array('class'=>'form-control','placeholder'=>'No Telepon...')) }}
     </div>
+    
+   
+    </div>
+    <div class="col-md-6">
+    
     <div class="form-group">
         {{ Form::label('pekerjaan', 'Pekerjaan') }}
         {{ Form::text('pekerjaan', $value=$data->pekerjaan, $attributes=array('class'=>'form-control','placeholder'=>'Pekerjaan...')) }}
@@ -76,8 +77,12 @@
     </div>
     <div class="form-group">
         {{ Form::label('data_diminta', 'Keterangan') }}
-        {{ Form::textarea('data_diminta', $value=$data->data_diminta, $attributes=['class'=>'form-control', 'placeholder'=>'Keterangan...']) }}
+        {{ Form::textarea('data_diminta', $value=$data->data_diminta, $attributes=['class'=>'form-control', 'placeholder'=>'Keterangan...', 'rows'=>'5']) }}
     </div>
+        <div class="form-group pnbp-container">
+        {{ Form::label('pnbp', 'Pembayaran') }}
+        {{ Form::select('pnbp', ['1'=>'PNBP', '2'=>'Non PNBP'], $value=$data->pnbp, $attributes=array('class'=>'form-control','placeholder'=>'Pilih Pembayaran...', 'onchange'=>'pembayaran(this.value)')) }}
+        </div>
     </div>
      </div>
     <div class="box-footer">
@@ -85,3 +90,4 @@
 {{ Form::close() }}
 </div>
     </div>
+

@@ -35,7 +35,7 @@ class PermohonanDataBPSController extends Controller
         $permohonandatabps->data_diminta = $request->input('data_diminta');        
         $permohonandatabps->operator_id = '17';
         $permohonandatabps->save();
-        return redirect('permohonan_data/create');
+        return redirect('permohonan_data/index');
     }
     
     public function simpan_individu(Request $request) {
@@ -52,11 +52,39 @@ class PermohonanDataBPSController extends Controller
         $permohonandatabps->nama_instansi = $request->input('nama_instansi');
         $permohonandatabps->email = $request->input('email');
         $permohonandatabps->data_diminta = $request->input('data_diminta');
+        $permohonandatabps->pnbp = $request->input('pnbp');
+        
+            $permohonandatabps->proses_data = $request->input('proses_data');
+            $permohonandatabps->size = $request->input('size');
+        
         $permohonandatabps->status_id = '1';
         $permohonandatabps->operator_id = '17';
         $permohonandatabps->data_inventori_id = $request->input('data_inventori_id');
         $permohonandatabps->save();
-        return redirect('permohonan_data/create');
+        return redirect('permohonan_data/index');
+    }
+    
+    public function simpan_instansi(Request $request) {
+        
+        $permohonandatabps = new \App\PermohonanDataBPS;
+        $permohonandatabps->no_surat= $request->input('no_surat');
+        $permohonandatabps->nama_instansi = $request->input('nama_instansi');
+        $permohonandatabps->kategori_instansi = $request->input('kategori_instansi'); ;
+        $permohonandatabps->alamat = $request->input('alamat');
+        $permohonandatabps->telp = $request->input('telp');
+        $permohonandatabps->nama_kepala = $request->input('nama_kepala');
+        $permohonandatabps->data_diminta = $request->input('data_diminta');
+        $permohonandatabps->pnbp = $request->input('pnbp');
+        $permohonandatabps->proses_data = $request->input('proses_data');
+        $permohonandatabps->size = $request->input('size');
+        
+        $permohonandatabps->status_id = '1';
+        $permohonandatabps->operator_id = '17';
+        $permohonandatabps->data_inventori_id = $request->input('data_inventori_id');
+        $permohonandatabps->save();
+        
+         
+        return redirect('permohonan_data/index');
     }
     
     public function get_ajax_data() {

@@ -49,19 +49,23 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
                     <thead>
                       <tr>
                         <th class="text-center">ID</th>
+                        <th class="text-center">Kategori Pemohon</th>
                         <th class="text-center">No Surat</th>
-                        <th class="text-center">Nama</th>
+                        <th class="text-center">Nama Pemohon/Instansi</th>
                         <th class="text-center">Data</th>
                         <th class="text-center">Tanggal Permohonan</th>
                         <th class="text-center">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
+                        <?php $i=0;?>
                     @foreach($datas as $data)
+                    <?php $i++;?>
                       <tr>
-                        <td class="text-center">{{ $data->id }}</td>
+                        <td class="text-center">{{ $i }}</td>
+                        <td>{{ $data->jk!=NULL?"Individu":($data->nama_kepala!=NULL?"Instansi/Lembaga":"Internal BPS") }}</td>
                         <td>{{ $data->no_surat }}</td>
-                        <td>{{ ($data->nama==NULL)?$data->peminjam_bps->nama:$data->nama }}</td>
+                        <td>{{ ($data->nama==NULL)?($data->nama_instansi==NULL)?$data->peminjam_bps->nama:$data->nama_instansi:$data->nama }}</td>
                         <td>{{ $data->data_inventori->nama_data }}</td>
                         <td class="text-center">{{ $data->create_time }}</td>
                         <td align='center'>

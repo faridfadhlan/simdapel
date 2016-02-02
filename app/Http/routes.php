@@ -133,6 +133,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('permohonan_data/get_ajax_data', 'PermohonanDataBPSController@get_ajax_data');
         Route::post('permohonan_data/simpan', 'PermohonanDataBPSController@simpan');
         Route::post('permohonan_data/simpan_individu', 'PermohonanDataBPSController@simpan_individu');
+        Route::post('permohonan_data/simpan_instansi', 'PermohonanDataBPSController@simpan_instansi');
     });
     
 });

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2016 at 09:47 AM
+-- Generation Time: Feb 02, 2016 at 09:50 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -266,8 +266,13 @@ CREATE TABLE `permohonan_data_nonbps` (
   `telp` varchar(100) NOT NULL,
   `pekerjaan` varchar(100) NOT NULL,
   `nama_instansi` varchar(100) NOT NULL,
+  `kategori_instansi` varchar(255) DEFAULT NULL,
+  `nama_kepala` varchar(255) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `data_diminta` text NOT NULL,
+  `pnbp` tinyint(11) NOT NULL,
+  `proses_data` tinyint(1) DEFAULT NULL,
+  `size` int(11) DEFAULT NULL,
   `status_id` int(11) DEFAULT NULL,
   `operator_id` int(11) DEFAULT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -279,9 +284,12 @@ CREATE TABLE `permohonan_data_nonbps` (
 -- Dumping data for table `permohonan_data_nonbps`
 --
 
-INSERT INTO `permohonan_data_nonbps` (`id`, `no_surat`, `jenis_identitas`, `no_identitas`, `nama`, `umur`, `jk`, `pendidikan_terakhir`, `alamat`, `telp`, `pekerjaan`, `nama_instansi`, `email`, `data_diminta`, `status_id`, `operator_id`, `create_time`, `pegawai_id`, `data_inventori_id`) VALUES
-(2, '10254dfdfdf01df0d', '', '', '', 0, '', '', '', '', '', '', '', '', NULL, 17, '0000-00-00 00:00:00', 4, 5),
-(4, NULL, '1', '3374082009890002', 'Muhammad Farid Fadhlan', 27, 'Laki-laki', '3', 'Jl. Tabrani Ahmad', '081258733375', 'PNS', 'BPS', 'm.farid@bps.go.id', '', 1, 17, '2016-02-01 00:00:00', NULL, 3);
+INSERT INTO `permohonan_data_nonbps` (`id`, `no_surat`, `jenis_identitas`, `no_identitas`, `nama`, `umur`, `jk`, `pendidikan_terakhir`, `alamat`, `telp`, `pekerjaan`, `nama_instansi`, `kategori_instansi`, `nama_kepala`, `email`, `data_diminta`, `pnbp`, `proses_data`, `size`, `status_id`, `operator_id`, `create_time`, `pegawai_id`, `data_inventori_id`) VALUES
+(2, '10254dfdfdf01df0d', '', '', '', 0, '', '', '', '', '', '', NULL, NULL, '', '', 0, NULL, NULL, NULL, 17, '0000-00-00 00:00:00', 4, 5),
+(4, NULL, '1', '3374082009890002', 'Muhammad Farid Fadhlan', 27, 'Laki-laki', '3', 'Jl. Tabrani Ahmad', '081258733375', 'PNS', 'BPS', NULL, NULL, 'm.farid@bps.go.id', '', 0, NULL, NULL, 1, 17, '2016-02-01 00:00:00', NULL, 3),
+(5, '12/584/02/2016', '', '', '', 0, NULL, '', 'Jl. Sutan Syahrir No. 145 Pontianak', '0561-4758412', '', 'Dinas Pertanian Provinsi Kalimantan Barat', '2', 'Sutop, SH, MM', '', '', 0, NULL, NULL, 1, 17, '2016-02-02 07:59:02', NULL, 6),
+(6, '12/584/02/2016', '', '', '', 0, NULL, '', '', '', '', '', NULL, NULL, '', 'Tes', 0, NULL, NULL, NULL, 17, '2016-02-02 08:08:12', 6, 6),
+(9, '11/22/33/2016', '', '', '', 0, NULL, '', 'Jl. Letjend Sutoyo', '0561-4758412', '', 'Dinas Sosial', '2', 'Suprapto', '', '', 1, NULL, NULL, 1, 17, '2016-02-02 09:39:37', NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -933,7 +941,7 @@ ALTER TABLE `permohonan_data_bps`
 -- AUTO_INCREMENT for table `permohonan_data_nonbps`
 --
 ALTER TABLE `permohonan_data_nonbps`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `pl_company`
 --
@@ -943,7 +951,7 @@ ALTER TABLE `pl_company`
 -- AUTO_INCREMENT for table `pl_data`
 --
 ALTER TABLE `pl_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=269;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 --
 -- AUTO_INCREMENT for table `pl_instalasi`
 --
@@ -953,12 +961,12 @@ ALTER TABLE `pl_instalasi`
 -- AUTO_INCREMENT for table `pl_jenis`
 --
 ALTER TABLE `pl_jenis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 --
 -- AUTO_INCREMENT for table `pl_license`
 --
 ALTER TABLE `pl_license`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `pl_media`
 --
