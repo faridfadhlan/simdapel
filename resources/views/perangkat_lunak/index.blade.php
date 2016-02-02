@@ -43,42 +43,43 @@ class='active'
             <li class="active">Data Perangkat Lunak</li>
           </ol>
             <br />
-            <div>
-                <a class="btn btn-block btn-primary" style="display:inline;" href="{{ action('PerangkatLunakController@create') }}">Tambah Perangkat Lunak</a>
-            </div>
+            @if(Auth::user()->role_id=='1' || Auth::user()->role_id=='4') 
+            <a href="{{ URL::to('perangkatlunak/create') }}" class="btn btn-default pull-left"><i class="fa fa-plus"></i> Tambah Perangkat Lunak</a>
+            <div class='clearfix'></div>
+            @endif
         </section>
 
         <!-- Main content -->
         <section class="content">
-              <div class="box box-primary">
+            <div class="box box-primary">
                 <div class="box-body">
-                  <table id="tabel1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th width='10%' style='text-align: center;vertical-align: center;'>Kode</th>
-                        <th style='text-align: center;vertical-align: center;'>Nama</th>
-                        <th width='10%' style='text-align: center;vertical-align: center;'>Jumlah Media</th>
-                        <th width='20%' style='text-align: center;vertical-align: center;'>Company</th>
-                        <th width='20%' style='text-align: center;vertical-align: center;'>Lisensi</th>
-                        <th width='10%' style='text-align: center;vertical-align: center;'>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($pl_data as $data)
-                      <tr>
-                        <td align='center'>{{ $data->kode }}</td>
-                        <td>{{ $data->nama }}</td>
-                        <td align='center'>{{ $data->jumlah_media }}</td>
-                        <td>{{ $data->company['nama_company'] }}</td>
-                        <td>{{ $data->license['nama_license'] }}</td>
-                        <td align='center'>
-                            <a href="{{ action('PerangkatLunakController@edit', ['id'=>$data->id]) }}" class="fa fa-edit"></a>
-                            <a href="{{ action('PerangkatLunakController@remove', ['id'=>$data->id]) }}" class="fa fa-remove"></a>
-                        </td>
-                      </tr>
-                    @endforeach
-                    </tbody>
-                  </table>
+                    <table id="tabel1" class="table table-bordered table-striped">
+                        <thead>
+                          <tr>
+                            <th width='10%' style='text-align: center;vertical-align: center;'>Kode</th>
+                            <th style='text-align: center;vertical-align: center;'>Nama</th>
+                            <th width='10%' style='text-align: center;vertical-align: center;'>Jumlah Media</th>
+                            <th width='20%' style='text-align: center;vertical-align: center;'>Company</th>
+                            <th width='20%' style='text-align: center;vertical-align: center;'>Lisensi</th>
+                            <th width='10%' style='text-align: center;vertical-align: center;'>Aksi</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($pl_data as $data)
+                          <tr>
+                            <td align='center'>{{ $data->kode }}</td>
+                            <td>{{ $data->nama }}</td>
+                            <td align='center'>{{ $data->jumlah_media }}</td>
+                            <td>{{ $data->company['nama_company'] }}</td>
+                            <td>{{ $data->license['nama_license'] }}</td>
+                            <td align='center'>
+                                <a href="{{ action('PerangkatLunakController@edit', ['id'=>$data->id]) }}" class="fa fa-edit"></a>
+                                <a href="{{ action('PerangkatLunakController@remove', ['id'=>$data->id]) }}" class="fa fa-remove"></a>
+                            </td>
+                          </tr>
+                        @endforeach
+                        </tbody>
+                      </table>
                     <div style='float:right;'>{{ $pl_data->render() }}</div>
                     <div style='clear:both;'></div>
                 </div><!-- /.box-body -->

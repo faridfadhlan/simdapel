@@ -26,6 +26,7 @@
     <div class="col-md-6">
         {{ Form::open(array('url' => 'permohonan_data/simpan_individu', 'method' => 'post')) }}
     {{ Form::hidden('data_inventori_id', $value=$data->data_inventori_id, $attributes=array('class'=>'data_inventori_id')) }}
+    
     <div class="form-group">
         {{ Form::label('jenis_identitas', 'Jenis Identitas') }}
         {{ Form::select('jenis_identitas', ['1'=>'KTP', '2'=>'SIM', '3'=>'Lainnya'],$value=$data->jenis_identitas, $attributes=array('class'=>'form-control','placeholder'=>'Pilih Identitas...')) }}

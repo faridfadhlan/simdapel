@@ -1,16 +1,17 @@
 
                   
-                    <div class="form-group">
-                      {{ Form::label('kode', 'Kode') }}
-                      {{ Form::text('kode', $value=$pl_data->kode, $attributes=array('class'=>'form-control','placeholder'=>'Kode')) }}
-                    </div>
+                    
                     <div class="form-group">
                       {{ Form::label('nama', 'Nama') }}
                       {{ Form::text('nama', $value=$pl_data->nama, $attributes=array('class'=>'form-control','placeholder'=>'Nama')) }}
                     </div>
                     <div class="form-group">
-                      {{ Form::label('jumlah_media', 'Jumlah Media Penyimpanan') }}
-                      {{ Form::text('jumlah_media', $value=$pl_data->jumlah_media, $attributes=array('class'=>'form-control','placeholder'=>'Jumlah Media Penyimpanan')) }}
+                      {{ Form::label('duplikat', 'Jumlah Duplikat') }}
+                      {{ Form::text('duplikat', $value=$pl_data->duplikat, $attributes=array('class'=>'form-control','placeholder'=>'Jumlah Duplikat...')) }}
+                    </div>
+                    <div class="form-group">
+                      {{ Form::label('jumlah_media', 'Jumlah Media Per Duplikat') }}
+                      {{ Form::text('jumlah_media', $value=$pl_data->jumlah_media, $attributes=array('class'=>'form-control','placeholder'=>'Jumlah Media Per Duplikat...')) }}
                     </div>
                     <div class="form-group">
                       {{ Form::label('manual', 'Manual') }}

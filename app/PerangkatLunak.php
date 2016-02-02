@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use DB;
 use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
@@ -34,6 +34,19 @@ class PerangkatLunak extends Model
     
     public function jenis() {
         return $this->belongsTo('\App\Jenis', 'jenis_id', 'id');
+    }
+    
+    public function get_this_kode() {
+        $tertinggi = DB::table($this->table)
+                     ->select(DB::raw('max(kode) as kode'))
+                     ->where('jenis_id', '=', $this->jenis_id)
+                     ->get();
+        //$angkanol = array(0 => '000', 1=>'00', 2=>'0');
+        //$next_kode = intval($tertinggi->kode)+1;
+        return $tertinggi;//.':'.  intval($tertinggi);//->kode;
+        //return $tertinggi;
+        //$next_kode = intval($tertinggi->kode)+1;
+        //return $angkanol[strlen($next_kode)].$next_kode;
     }
     
     /*

@@ -60,14 +60,14 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
                     <tbody>
                         <?php $i=0;?>
                     @foreach($datas as $data)
-                    <?php $i++;?>
+                    <?php $i++;$jenis = ['1'=>'Pegawai BPS', '2'=>'Individu', '3'=>'Instansi/Lembaga'];?>
                       <tr>
                         <td class="text-center">{{ $i }}</td>
-                        <td>{{ $data->jk!=NULL?"Individu":($data->nama_kepala!=NULL?"Instansi/Lembaga":"Internal BPS") }}</td>
+                        <td>{{ $data->jk!=NULL?"Individu":$jenis[$data->flag_user] }}</td>
                         <td>{{ $data->no_surat }}</td>
-                        <td>{{ ($data->nama==NULL)?($data->nama_instansi==NULL)?$data->peminjam_bps->nama:$data->nama_instansi:$data->nama }}</td>
+                        <td>{{ ($data->flag_user=='2')?$data->nama:(($data->flag_user=='1')?$data->peminjam_bps->nama:$data->nama_instansi) }}</td>
                         <td>{{ $data->data_inventori->nama_data }}</td>
-                        <td class="text-center">{{ $data->create_time }}</td>
+                        <td class="text-center">{{ datetime_to_tanggal($data->create_time) }}</td>
                         <td align='center'>
                             <a href="#" class="fa fa-edit"></a>
                             <a href="#" class="fa fa-remove"></a>

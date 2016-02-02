@@ -28,10 +28,12 @@
               </a>
               <ul class="treeview-menu">
                 <li {{ Request::is('perangkatlunak*')?'class=active':'' }} ><a href="{{ action('PerangkatLunakController@index')}}"><i class="fa fa-circle-o"></i>Data Perangkat Lunak</a></li>
+                @if(Auth::user()->role_id=='1' || Auth::user()->role_id=='4')
                 <li {{ Request::is('company*')?'class=active':'' }}><a href="{{ action('CompanyController@index') }}"><i class="fa fa-circle-o"></i>Master Company</a></li>
                 <li {{ Request::is('license*')?'class=active':'' }}><a href="{{ action('LicenseController@index') }}"><i class="fa fa-circle-o"></i>Master Lisensi</a></li>
                 <li {{ Request::is('media*')?'class=active':'' }}><a href="{{ action('MediaController@index') }}"><i class="fa fa-circle-o"></i>Master Media Penyimpanan</a></li>
                 <li {{ Request::is('jenis*')?'class=active':'' }}><a href="{{ action('JenisController@index') }}"><i class="fa fa-circle-o"></i>Master Jenis</a></li>
+                @endif
               </ul>
             </li>
             @endif

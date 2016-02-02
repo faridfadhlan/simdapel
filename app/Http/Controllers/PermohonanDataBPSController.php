@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Datatables;
-use Input;
-use App\Http\Requests;
+use Auth;
 use App\Http\Controllers\Controller;
 
 class PermohonanDataBPSController extends Controller
@@ -33,7 +32,8 @@ class PermohonanDataBPSController extends Controller
         $permohonandatabps->pegawai_id = $request->input('pegawai_id');
         $permohonandatabps->data_inventori_id = $request->input('data_inventori_id');
         $permohonandatabps->data_diminta = $request->input('data_diminta');        
-        $permohonandatabps->operator_id = '17';
+        $permohonandatabps->operator_id = Auth::user()->id;
+        $permohonandatabps->flag_user = '1';
         $permohonandatabps->save();
         return redirect('permohonan_data/index');
     }
@@ -58,7 +58,8 @@ class PermohonanDataBPSController extends Controller
             $permohonandatabps->size = $request->input('size');
         
         $permohonandatabps->status_id = '1';
-        $permohonandatabps->operator_id = '17';
+        $permohonandatabps->operator_id = Auth::user()->id;
+        $permohonandatabps->flag_user = '2';
         $permohonandatabps->data_inventori_id = $request->input('data_inventori_id');
         $permohonandatabps->save();
         return redirect('permohonan_data/index');
@@ -79,7 +80,8 @@ class PermohonanDataBPSController extends Controller
         $permohonandatabps->size = $request->input('size');
         
         $permohonandatabps->status_id = '1';
-        $permohonandatabps->operator_id = '17';
+        $permohonandatabps->operator_id = Auth::user()->id;
+        $permohonandatabps->flag_user = '3';
         $permohonandatabps->data_inventori_id = $request->input('data_inventori_id');
         $permohonandatabps->save();
         

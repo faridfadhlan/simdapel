@@ -27,6 +27,7 @@
     <div class="col-md-6">
         {{ Form::open(array('url' => 'permohonan_data/simpan', 'method' => 'post')) }}
         {{ Form::hidden('data_inventori_id', $value=$data->data_inventori_id, $attributes=array('class'=>'data_inventori_id')) }}
+        
     <div class="form-group">
         {{ Form::label('no_surat', 'Nomor Surat') }}
         {{ Form::text('no_surat', $value=$data->no_surat, $attributes=array('class'=>'form-control','placeholder'=>'Nomor Surat...')) }}

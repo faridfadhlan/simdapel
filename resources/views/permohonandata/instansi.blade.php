@@ -24,6 +24,7 @@
      <div class="row">
          <div class="col-md-12"><h3>Identitas Pemohon Data</h3></div>
          {{ Form::open(array('url' => 'permohonan_data/simpan_instansi', 'method' => 'post', 'id'=>'form_instansi')) }}
+        
     <div class="col-md-6">
         
     {{ Form::hidden('data_inventori_id', $value=$data->data_inventori_id, $attributes=array('class'=>'data_inventori_id')) }}

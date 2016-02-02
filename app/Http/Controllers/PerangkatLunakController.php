@@ -77,21 +77,28 @@ class PerangkatLunakController extends Controller
     }
     
     public function save() {    
-        $perangkatlunak = new \App\PerangkatLunak;       
-        $perangkatlunak->kode = Input::get('kode');
+        $perangkatlunak = new \App\PerangkatLunak;     
+        $perangkatlunak->jenis_id = Input::get('jenis_id');  
+        $perangkatlunak->kode = $perangkatlunak->get_this_kode();
+        echo $perangkatlunak->kode;
+        /*
+        $perangkatlunak = new \App\PerangkatLunak;     
+        $perangkatlunak->jenis_id = Input::get('jenis_id');  
+        $perangkatlunak->kode = $perangkatlunak->get_next_kode();
         $perangkatlunak->nama = Input::get('nama');
         $perangkatlunak->jumlah_media = Input::get('jumlah_media');
         $perangkatlunak->manual = Input::get('manual');
         $perangkatlunak->tgl_terima = Input::get('tgl_terima');
         $perangkatlunak->media_id = Input::get('media_id');
         $perangkatlunak->license_id = Input::get('license_id');
-        $perangkatlunak->jenis_id = Input::get('jenis_id');
         $perangkatlunak->company_id = Input::get('company_id');
         $perangkatlunak->tgl_expired = Input::get('tgl_expired');
         $perangkatlunak->ket =  Input::get('ket');
         $perangkatlunak->operator_id = '1';
         $perangkatlunak->save();        
         return redirect('perangkatlunak');
+         * 
+         */
     }
     
     public function search() {

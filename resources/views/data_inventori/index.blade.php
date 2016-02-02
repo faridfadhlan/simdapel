@@ -19,9 +19,10 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
             <li class="active">Data Inventori</li>
           </ol>
             <br />
-            <div>
-                <a class="btn btn-block btn-primary" style="display:inline;" href="{{ action('DataInventoriController@create') }}">Tambah Data Inventori</a>
-            </div>
+            @if(Auth::user()->role_id=='1' || Auth::user()->role_id=='4')
+            <a href="{{ URL::to('data_inventori/create') }}" class="btn btn-default pull-left"><i class="fa fa-plus"></i> Tambah Data Inventori</a>
+            <div class="clearfix"></div>
+            @endif
         </section>
 
         <!-- Main content -->
