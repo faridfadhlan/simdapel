@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2016 at 09:50 AM
--- Server version: 10.1.9-MariaDB
+-- Generation Time: 02 Feb 2016 pada 16.44
+-- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bidang`
+-- Struktur dari tabel `bidang`
 --
 
 CREATE TABLE `bidang` (
@@ -32,7 +32,7 @@ CREATE TABLE `bidang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bidang`
+-- Dumping data untuk tabel `bidang`
 --
 
 INSERT INTO `bidang` (`id`, `nama_bidang`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `bidang` (`id`, `nama_bidang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_inventori`
+-- Struktur dari tabel `data_inventori`
 --
 
 CREATE TABLE `data_inventori` (
@@ -69,7 +69,7 @@ CREATE TABLE `data_inventori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `data_inventori`
+-- Dumping data untuk tabel `data_inventori`
 --
 
 INSERT INTO `data_inventori` (`id`, `no_cd`, `label_cd`, `nama_data`, `tahun`, `rincian`, `format`, `jumlah_rec`, `file_size`, `file_size_unit`, `keterangan`, `nama_layout`, `subjek_id`, `create_time`, `operator_id`) VALUES
@@ -99,7 +99,7 @@ INSERT INTO `data_inventori` (`id`, `no_cd`, `label_cd`, `nama_data`, `tahun`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_kuesioner`
+-- Struktur dari tabel `data_kuesioner`
 --
 
 CREATE TABLE `data_kuesioner` (
@@ -112,7 +112,7 @@ CREATE TABLE `data_kuesioner` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_subjek`
+-- Struktur dari tabel `data_subjek`
 --
 
 CREATE TABLE `data_subjek` (
@@ -122,7 +122,7 @@ CREATE TABLE `data_subjek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `data_subjek`
+-- Dumping data untuk tabel `data_subjek`
 --
 
 INSERT INTO `data_subjek` (`id`, `kode`, `nama_subjek`) VALUES
@@ -141,7 +141,7 @@ INSERT INTO `data_subjek` (`id`, `kode`, `nama_subjek`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `instansi`
+-- Struktur dari tabel `instansi`
 --
 
 CREATE TABLE `instansi` (
@@ -150,7 +150,7 @@ CREATE TABLE `instansi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `instansi`
+-- Dumping data untuk tabel `instansi`
 --
 
 INSERT INTO `instansi` (`id`, `nama_unit`) VALUES
@@ -163,7 +163,7 @@ INSERT INTO `instansi` (`id`, `nama_unit`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- Struktur dari tabel `level`
 --
 
 CREATE TABLE `level` (
@@ -172,7 +172,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `level`
+-- Dumping data untuk tabel `level`
 --
 
 INSERT INTO `level` (`id`, `nama_level`) VALUES
@@ -184,7 +184,7 @@ INSERT INTO `level` (`id`, `nama_level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `operator`
+-- Struktur dari tabel `operator`
 --
 
 CREATE TABLE `operator` (
@@ -196,7 +196,7 @@ CREATE TABLE `operator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `operator`
+-- Dumping data untuk tabel `operator`
 --
 
 INSERT INTO `operator` (`id`, `username`, `password`, `level`, `pegawai_id`) VALUES
@@ -205,7 +205,7 @@ INSERT INTO `operator` (`id`, `username`, `password`, `level`, `pegawai_id`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pegawai`
+-- Struktur dari tabel `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -216,7 +216,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `pegawai`
+-- Dumping data untuk tabel `pegawai`
 --
 
 INSERT INTO `pegawai` (`id`, `nip`, `nama`, `unit_id`) VALUES
@@ -225,7 +225,7 @@ INSERT INTO `pegawai` (`id`, `nip`, `nama`, `unit_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permohonan_data_bps`
+-- Struktur dari tabel `permohonan_data_bps`
 --
 
 CREATE TABLE `permohonan_data_bps` (
@@ -240,7 +240,7 @@ CREATE TABLE `permohonan_data_bps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `permohonan_data_bps`
+-- Dumping data untuk tabel `permohonan_data_bps`
 --
 
 INSERT INTO `permohonan_data_bps` (`id`, `no_surat`, `data_diminta`, `pegawai_id`, `status_id`, `operator_id`, `data_inventori_id`, `create_time`) VALUES
@@ -250,7 +250,7 @@ INSERT INTO `permohonan_data_bps` (`id`, `no_surat`, `data_diminta`, `pegawai_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permohonan_data_nonbps`
+-- Struktur dari tabel `permohonan_data_nonbps`
 --
 
 CREATE TABLE `permohonan_data_nonbps` (
@@ -277,24 +277,28 @@ CREATE TABLE `permohonan_data_nonbps` (
   `operator_id` int(11) DEFAULT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `pegawai_id` int(11) DEFAULT NULL,
-  `data_inventori_id` int(11) DEFAULT NULL
+  `data_inventori_id` int(11) DEFAULT NULL,
+  `flag_user` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `permohonan_data_nonbps`
+-- Dumping data untuk tabel `permohonan_data_nonbps`
 --
 
-INSERT INTO `permohonan_data_nonbps` (`id`, `no_surat`, `jenis_identitas`, `no_identitas`, `nama`, `umur`, `jk`, `pendidikan_terakhir`, `alamat`, `telp`, `pekerjaan`, `nama_instansi`, `kategori_instansi`, `nama_kepala`, `email`, `data_diminta`, `pnbp`, `proses_data`, `size`, `status_id`, `operator_id`, `create_time`, `pegawai_id`, `data_inventori_id`) VALUES
-(2, '10254dfdfdf01df0d', '', '', '', 0, '', '', '', '', '', '', NULL, NULL, '', '', 0, NULL, NULL, NULL, 17, '0000-00-00 00:00:00', 4, 5),
-(4, NULL, '1', '3374082009890002', 'Muhammad Farid Fadhlan', 27, 'Laki-laki', '3', 'Jl. Tabrani Ahmad', '081258733375', 'PNS', 'BPS', NULL, NULL, 'm.farid@bps.go.id', '', 0, NULL, NULL, 1, 17, '2016-02-01 00:00:00', NULL, 3),
-(5, '12/584/02/2016', '', '', '', 0, NULL, '', 'Jl. Sutan Syahrir No. 145 Pontianak', '0561-4758412', '', 'Dinas Pertanian Provinsi Kalimantan Barat', '2', 'Sutop, SH, MM', '', '', 0, NULL, NULL, 1, 17, '2016-02-02 07:59:02', NULL, 6),
-(6, '12/584/02/2016', '', '', '', 0, NULL, '', '', '', '', '', NULL, NULL, '', 'Tes', 0, NULL, NULL, NULL, 17, '2016-02-02 08:08:12', 6, 6),
-(9, '11/22/33/2016', '', '', '', 0, NULL, '', 'Jl. Letjend Sutoyo', '0561-4758412', '', 'Dinas Sosial', '2', 'Suprapto', '', '', 1, NULL, NULL, 1, 17, '2016-02-02 09:39:37', NULL, 8);
+INSERT INTO `permohonan_data_nonbps` (`id`, `no_surat`, `jenis_identitas`, `no_identitas`, `nama`, `umur`, `jk`, `pendidikan_terakhir`, `alamat`, `telp`, `pekerjaan`, `nama_instansi`, `kategori_instansi`, `nama_kepala`, `email`, `data_diminta`, `pnbp`, `proses_data`, `size`, `status_id`, `operator_id`, `create_time`, `pegawai_id`, `data_inventori_id`, `flag_user`) VALUES
+(2, '10254dfdfdf01df0d', '', '', '', 0, '', '', '', '', '', '', NULL, NULL, '', '', 0, NULL, NULL, NULL, 17, '2016-02-02 00:00:00', 4, 5, 1),
+(4, NULL, '1', '3374082009890002', 'Muhammad Farid Fadhlan', 27, 'Laki-laki', '3', 'Jl. Tabrani Ahmad', '081258733375', 'PNS', 'BPS', NULL, NULL, 'm.farid@bps.go.id', '', 0, NULL, NULL, 1, 17, '2016-02-01 00:00:00', NULL, 3, 2),
+(5, '12/584/02/2016', '', '', '', 0, NULL, '', 'Jl. Sutan Syahrir No. 145 Pontianak', '0561-4758412', '', 'Dinas Pertanian Provinsi Kalimantan Barat', '2', 'Sutop, SH, MM', '', '', 0, NULL, NULL, 1, 17, '2016-02-02 07:59:02', NULL, 6, 3),
+(6, '12/584/02/2016', '', '', '', 0, NULL, '', '', '', '', '', NULL, NULL, '', 'Tes', 0, NULL, NULL, NULL, 17, '2016-02-02 08:08:12', 6, 6, 1),
+(9, '11/22/33/2016', '', '', '', 0, NULL, '', 'Jl. Letjend Sutoyo', '0561-4758412', '', 'Dinas Sosial', '2', 'Suprapto', '', '', 1, NULL, NULL, 1, 17, '2016-02-02 09:39:37', NULL, 8, 3),
+(10, '10/22/34/2016', '', '', '', 0, NULL, '', '', '', '', '', NULL, NULL, '', '', 0, NULL, NULL, NULL, 17, '2016-02-02 21:03:28', 24, 21, 1),
+(11, '76/45/98/2016', '', '', '', 0, NULL, '', '', '', '', '', NULL, NULL, '', '', 0, NULL, NULL, NULL, 17, '2016-02-02 21:09:00', 14, 7, 1),
+(12, '98/DISPERINDAG/78378473/2016', '', '', '', 0, NULL, '', 'Jl. Pahlawan 10', '0561-778245', '', 'Dinas Perindustrian dan Perdagangan', '2', 'Mulyadi', '', '', 2, NULL, NULL, 1, 17, '2016-02-02 21:11:19', NULL, 17, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pl_company`
+-- Struktur dari tabel `pl_company`
 --
 
 CREATE TABLE `pl_company` (
@@ -303,7 +307,7 @@ CREATE TABLE `pl_company` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `pl_company`
+-- Dumping data untuk tabel `pl_company`
 --
 
 INSERT INTO `pl_company` (`id`, `nama_company`) VALUES
@@ -325,12 +329,13 @@ INSERT INTO `pl_company` (`id`, `nama_company`) VALUES
 (16, 'Sybase Inc.'),
 (17, 'BPS'),
 (18, 'Dell'),
-(19, 'Axway');
+(19, 'Axway'),
+(20, 'Lainnya');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pl_data`
+-- Struktur dari tabel `pl_data`
 --
 
 CREATE TABLE `pl_data` (
@@ -354,12 +359,12 @@ CREATE TABLE `pl_data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `pl_data`
+-- Dumping data untuk tabel `pl_data`
 --
 
 INSERT INTO `pl_data` (`id`, `kode`, `nama`, `jumlah_media`, `duplikat`, `manual`, `tgl_terima`, `sn`, `media_id`, `license_id`, `jenis_id`, `company_id`, `tgl_expired`, `ket`, `create_time`, `operator_id`, `kontak_id`) VALUES
 (1, '1001', 'SYMANTEC Server', 1, 1, 'null', '2015-01-01', '-', 3, 2, 1, 17, '2016-01-01', '-', '2016-02-01 09:15:29', 18, 18),
-(2, '1002', 'Avast Pro Antivirus 6.0.1000', 1, 1, 'null', '2015-01-01', '', 4, 6, 1, 99, '2016-01-01', '', '2016-02-01 09:15:30', 18, 18),
+(2, '1002', 'Avast Pro Antivirus 6.0.1000', 1, 1, 'null', '2015-01-01', '', 4, 6, 1, 20, '2016-01-01', '', '2016-02-01 09:15:30', 18, 18),
 (3, '1003', 'McAfee VirusScan Enterprise 8.5i Plus Patch 6', 1, 1, 'null', '2015-01-01', '', 4, 6, 1, 7, '2016-01-01', '', '2016-02-01 09:15:31', 18, 18),
 (4, '2001', 'DPP 2013 Program', 1, 1, '1', '2015-01-01', '-', 3, 7, 2, 17, '2016-01-01', '-', '2016-02-01 09:15:32', 18, 18),
 (5, '2002', 'DPPNRT 2014 Program', 1, 1, '1', '2015-01-01', '-', 3, 7, 2, 17, '2016-01-01', '-', '2016-02-01 09:15:33', 18, 18),
@@ -389,15 +394,15 @@ INSERT INTO `pl_data` (`id`, `kode`, `nama`, `jumlah_media`, `duplikat`, `manual
 (29, '2026', 'STRPBS 2013', 1, 1, '1', '2015-01-01', '-', 3, 7, 2, 17, '2016-01-01', '-', '2016-02-01 09:15:57', 18, 18),
 (30, '2027', 'SUSENAS 2014 Program Entry', 1, 1, '1', '2015-01-01', '-', 3, 7, 2, 17, '2016-01-01', '-', '2016-02-01 09:15:58', 18, 18),
 (31, '2028', 'SUSENAS 2015 Program Updating', 1, 1, '1', '2015-01-01', '-', 3, 7, 2, 17, '2016-01-01', '-', '2016-02-01 09:15:59', 18, 18),
-(32, '2029', 'Cspro40', 1, 1, 'null', '2015-01-01', '', 4, 7, 2, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(32, '2029', 'Cspro40', 1, 1, 'null', '2015-01-01', '', 4, 7, 2, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (33, '2030', 'SIMAK_BMN_2011_MIGRASI', 1, 1, 'null', '2015-01-01', '', 4, 7, 2, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (34, '3001', 'Adobe Photoshop CS2', 1, 1, 'null', '2015-01-01', '-', 3, 2, 3, 1, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
 (35, '3002', 'ArcGIS 10', 1, 1, '1', '2015-01-01', '-', 3, 2, 3, 2, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
-(36, '3003', 'Flash', 1, 1, 'null', '2015-01-01', '-', 3, 2, 3, 99, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
+(36, '3003', 'Flash', 1, 1, 'null', '2015-01-01', '-', 3, 2, 3, 20, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
 (37, '3004', 'Photoshop Cover Action 2', 1, 1, 'null', '2015-01-01', '-', 3, 2, 3, 1, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
 (38, '3005', 'Ulead.VideoStudio.11.Portable ON for WinXP', 1, 1, 'null', '2015-01-01', '-', 3, 2, 3, 17, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
 (39, '3006', 'Adobe Photoshop 7.0', 1, 1, 'null', '2015-01-01', '1045-0203-3247-2217-3566-6177', 4, 6, 3, 1, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(40, '3007', 'image web', 1, 1, 'null', '2015-01-01', '', 4, 6, 3, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(40, '3007', 'image web', 1, 1, 'null', '2015-01-01', '', 4, 6, 3, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (41, '3008', 'Joomla', 1, 1, 'null', '2015-01-01', '', 4, 6, 3, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (42, '5001', 'Team Viewer', 1, 1, 'null', '2015-01-01', '-', 3, 2, 5, 17, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
 (43, '6001', 'Microsoft Office 2003', 1, 1, 'null', '2015-01-01', 'GWH28-DGCMP-P6RC4-6J4MT-3HFDY', 4, 6, 6, 8, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
@@ -405,40 +410,40 @@ INSERT INTO `pl_data` (`id`, `kode`, `nama`, `jumlah_media`, `duplikat`, `manual
 (45, '6003', 'OFFICE97', 1, 1, 'null', '2015-01-01', '4156-0212207', 4, 6, 6, 8, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (46, '6004', 'Office 2010', 1, 1, 'null', '2015-01-01', 'TRT2Y-9PD2R-KKRYK-Y32BH-6HHWY', 4, 6, 6, 8, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (47, '6005', 'VB6', 1, 1, 'null', '2015-01-01', '422-1111111', 4, 6, 6, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(48, '12001', 'CANON_mp 258', 1, 1, 'null', '2015-01-01', '', 4, 2, 12, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(49, '12002', 'CANON_PIXMA MP198', 1, 1, 'null', '2015-01-01', '', 4, 2, 12, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(50, '12003', 'Driver ACER', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(51, '12004', 'DRIVER PRINTRONIX', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(52, '12005', 'HP LASERJET 1320', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(53, '12006', 'HP LJ P4010_P451 (E)', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(54, '12007', 'Scan Fujitsu Fi', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(55, '12008', 'STELLHEAD', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(48, '12001', 'CANON_mp 258', 1, 1, 'null', '2015-01-01', '', 4, 2, 12, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(49, '12002', 'CANON_PIXMA MP198', 1, 1, 'null', '2015-01-01', '', 4, 2, 12, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(50, '12003', 'Driver ACER', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(51, '12004', 'DRIVER PRINTRONIX', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(52, '12005', 'HP LASERJET 1320', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(53, '12006', 'HP LJ P4010_P451 (E)', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(54, '12007', 'Scan Fujitsu Fi', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(55, '12008', 'STELLHEAD', 1, 1, 'null', '2015-01-01', '', 4, 6, 12, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (56, '17001', 'adobe pro 9', 1, 1, 'null', '2015-01-01', '-', 3, 2, 17, 1, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
-(57, '17002', 'IMAGE BURNING', 1, 1, 'null', '2015-01-01', '', 4, 6, 17, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(57, '17002', 'IMAGE BURNING', 1, 1, 'null', '2015-01-01', '', 4, 6, 17, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (58, '18001', 'WIN7', 1, 1, 'null', '2015-01-01', '-', 3, 2, 18, 17, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
 (59, '18002', 'Win8', 1, 1, 'null', '2015-01-01', '-', 3, 2, 18, 17, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
 (60, '18003', 'Cloning Server Kabupaten', 1, 1, 'null', '2015-01-01', '', 4, 7, 18, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (61, '18004', 'SPSS v16.0', 1, 1, 'null', '2015-01-01', '', 4, 6, 18, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(62, '19001', 'SPTK2013', 1, 1, 'null', '2015-01-01', '', 4, 6, 19, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(63, '19002', 'Visual Foxpro', 1, 1, 'null', '2015-01-01', '757-2573155', 4, 6, 19, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(62, '19001', 'SPTK2013', 1, 1, 'null', '2015-01-01', '', 4, 6, 19, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(63, '19002', 'Visual Foxpro', 1, 1, 'null', '2015-01-01', '757-2573155', 4, 6, 19, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (64, '19003', 'windows server kabupaten', 1, 1, 'null', '2015-01-01', '', 4, 7, 19, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (65, '20001', 'Microsoft Office Visio 2007 - Eng', 1, 1, 'null', '2015-01-01', '-', 3, 2, 20, 8, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
-(66, '21001', 'Hiren'' Boot', 1, 1, 'null', '2015-01-01', '-', 3, 2, 21, 99, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
-(67, '21002', 'LG CDROM', 1, 1, 'null', '2015-01-01', '-', 3, 2, 21, 99, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
-(68, '21003', 'Program VCD Cutter v4.0_With_CRACK', 1, 1, 'null', '2015-01-01', '-', 3, 2, 21, 99, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
-(69, '99001', 'Flipping Book', 1, 1, 'null', '2015-01-01', '-', 3, 2, 99, 99, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
+(66, '21001', 'Hiren'' Boot', 1, 1, 'null', '2015-01-01', '-', 3, 2, 21, 20, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
+(67, '21002', 'LG CDROM', 1, 1, 'null', '2015-01-01', '-', 3, 2, 21, 20, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
+(68, '21003', 'Program VCD Cutter v4.0_With_CRACK', 1, 1, 'null', '2015-01-01', '-', 3, 2, 21, 20, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
+(69, '99001', 'Flipping Book', 1, 1, 'null', '2015-01-01', '-', 3, 2, 99, 20, '2016-01-01', '-', '0000-00-00 00:00:00', 18, 18),
 (70, '99002', 'Adobe Acrobat 6.0 Professional', 1, 1, 'null', '2015-01-01', '1118-1911-4821-7104-6966-4189', 4, 6, 99, 1, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(71, '99003', 'Ghost', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(72, '99004', 'GIS_LAT', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(73, '99005', 'GIS_PSPK', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(71, '99003', 'Ghost', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(72, '99004', 'GIS_LAT', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(73, '99005', 'GIS_PSPK', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (74, '99006', 'Handkey', 1, 1, 'null', '2015-01-01', '', 4, 7, 99, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(75, '99007', 'Installer Flipbook', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(75, '99007', 'Installer Flipbook', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (76, '99008', 'Lat GIS', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(77, '99009', 'Macromedia Dreamweaver MX', 1, 1, 'null', '2015-01-01', 'WSW600-59791-91721-99978CD ', 4, 6, 99, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(77, '99009', 'Macromedia Dreamweaver MX', 1, 1, 'null', '2015-01-01', 'WSW600-59791-91721-99978CD ', 4, 6, 99, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (78, '99010', 'MapObject2.1', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(79, '99011', 'Partitionmagic', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(79, '99011', 'Partitionmagic', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (80, '99012', 'PODES2011', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
-(81, '99013', 'Portable PDF Password Remover 3.0', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 99, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
+(81, '99013', 'Portable PDF Password Remover 3.0', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 20, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (82, '99014', 'Program IMK', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (83, '99015', 'REDATAM', 1, 1, 'null', '2015-01-01', '', 4, 6, 99, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
 (84, '99016', 'SIMPEG', 1, 1, 'null', '2015-01-01', '', 4, 7, 99, 17, '2016-01-01', '', '0000-00-00 00:00:00', 18, 18),
@@ -450,7 +455,7 @@ INSERT INTO `pl_data` (`id`, `kode`, `nama`, `jumlah_media`, `duplikat`, `manual
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pl_instalasi`
+-- Struktur dari tabel `pl_instalasi`
 --
 
 CREATE TABLE `pl_instalasi` (
@@ -468,7 +473,7 @@ CREATE TABLE `pl_instalasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pl_jenis`
+-- Struktur dari tabel `pl_jenis`
 --
 
 CREATE TABLE `pl_jenis` (
@@ -478,7 +483,7 @@ CREATE TABLE `pl_jenis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `pl_jenis`
+-- Dumping data untuk tabel `pl_jenis`
 --
 
 INSERT INTO `pl_jenis` (`id`, `kode`, `nama_jenis`) VALUES
@@ -508,7 +513,7 @@ INSERT INTO `pl_jenis` (`id`, `kode`, `nama_jenis`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pl_license`
+-- Struktur dari tabel `pl_license`
 --
 
 CREATE TABLE `pl_license` (
@@ -517,7 +522,7 @@ CREATE TABLE `pl_license` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `pl_license`
+-- Dumping data untuk tabel `pl_license`
 --
 
 INSERT INTO `pl_license` (`id`, `nama_license`) VALUES
@@ -532,7 +537,7 @@ INSERT INTO `pl_license` (`id`, `nama_license`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pl_media`
+-- Struktur dari tabel `pl_media`
 --
 
 CREATE TABLE `pl_media` (
@@ -541,7 +546,7 @@ CREATE TABLE `pl_media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `pl_media`
+-- Dumping data untuk tabel `pl_media`
 --
 
 INSERT INTO `pl_media` (`id`, `nama_media`) VALUES
@@ -555,7 +560,7 @@ INSERT INTO `pl_media` (`id`, `nama_media`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pl_transaksi`
+-- Struktur dari tabel `pl_transaksi`
 --
 
 CREATE TABLE `pl_transaksi` (
@@ -573,7 +578,7 @@ CREATE TABLE `pl_transaksi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Struktur dari tabel `role`
 --
 
 CREATE TABLE `role` (
@@ -583,7 +588,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `role`
+-- Dumping data untuk tabel `role`
 --
 
 INSERT INTO `role` (`id`, `name`, `description`) VALUES
@@ -595,7 +600,7 @@ INSERT INTO `role` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Struktur dari tabel `roles`
 --
 
 CREATE TABLE `roles` (
@@ -605,7 +610,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `roles`
+-- Dumping data untuk tabel `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `description`) VALUES
@@ -617,7 +622,7 @@ INSERT INTO `roles` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seksi`
+-- Struktur dari tabel `seksi`
 --
 
 CREATE TABLE `seksi` (
@@ -627,7 +632,7 @@ CREATE TABLE `seksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `seksi`
+-- Dumping data untuk tabel `seksi`
 --
 
 INSERT INTO `seksi` (`id`, `nama_seksi`, `bidang_id`) VALUES
@@ -661,7 +666,7 @@ INSERT INTO `seksi` (`id`, `nama_seksi`, `bidang_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status`
+-- Struktur dari tabel `status`
 --
 
 CREATE TABLE `status` (
@@ -670,7 +675,7 @@ CREATE TABLE `status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `status`
+-- Dumping data untuk tabel `status`
 --
 
 INSERT INTO `status` (`id`, `nama_status`) VALUES
@@ -680,7 +685,7 @@ INSERT INTO `status` (`id`, `nama_status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -696,11 +701,11 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `nip`, `nama`, `username`, `email`, `password`, `remember_token`, `seksi_id`, `role_id`) VALUES
-(1, '196811051994012001', 'Ika Novia Satriana SE, MM', 'ika', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', 'cwFtBZaGwgfRP0UlrRMUmM5Quxpyzq6IYfQgRPjlqb84BGVRceEHlTcxSZcM', 1, 3),
+(1, '196811051994012001', 'Ika Novia Satriana SE, MM', 'ika', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', 'N7QDcc1eX3kxZyN2N5KGwhcNZuiChHao0GA3afNNyrm7978RWWG1iVLmnCDD', 1, 3),
 (2, '196604131986032002', 'Faridawati', 'faridawati', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 2, 2),
 (3, '196903221994012001', 'Ir.  Elly Nurmawati  M.M.', 'elly', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 3, 2),
 (4, '195807271981031004', 'Suryadi S  S.H.', 'suryadi', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 4, 2),
@@ -716,7 +721,7 @@ INSERT INTO `user` (`id`, `nip`, `nama`, `username`, `email`, `password`, `remem
 (14, '197206121994122001', 'Sri Suyatmi S.Si, M.Si', 'sri', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 14, 2),
 (15, '197608171999011001', 'Agus Hartanto, SE, M.Eng M.Sc', 'agus', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 15, 2),
 (16, '196611111994012001', 'Tri Setiani SE, M.M.', 'tri', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 16, 2),
-(17, '197604091999011001', 'Hakim Azizi S.ST', 'hakim', 'hakim@bps.go.id', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', 'xlUVAR2ZqASjpWJLLo4orh1hpATd76E2Bwq7Vx7Mpo1Px0y55gX02yFJdoT7', 17, 4),
+(17, '197604091999011001', 'Hakim Azizi S.ST', 'hakim', 'hakim@bps.go.id', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', 'yKLmkEL6o00RvW9xq7li5aG5uTOrokVQPbCyaLm8IRVvhQl3QLT8OVH38n2A', 17, 4),
 (18, '196005121981031002', 'Syarif Busri S.E.', 'busri', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', 'dxIke2fhhPq8yTxu25oRHuz3nX91CfabEbyBqfo2kVJ6ZWnsX6gbeyKRjfkI', 18, 2),
 (19, '197612121999032001', 'Heny Sucihati S.ST', 'heny', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 19, 2),
 (20, '196509101994021001', 'Ir. Jamaludin ?MM', 'jamaludin', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 20, 2),
@@ -724,7 +729,7 @@ INSERT INTO `user` (`id`, `nip`, `nama`, `username`, `email`, `password`, `remem
 (22, '196703211992032002', 'Sari Mariani SE', 'mariani', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 22, 2),
 (23, '195804261983021001', 'Edi Rahman Asmara S.Si, M.M', 'edi', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 23, 2),
 (24, '196603041992032001', 'Ir. Martalena M.M.', 'martalena', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '', 24, 2),
-(25, '197101211993121002', 'Sudiyanto S.Si., MM', 'sudiyanto', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', '6WGXzzET4akFffsIO22AXadUx5yqgZwUW1nLbbnvOYH5gy2csi79lJqG9NrD', 25, 2),
+(25, '197101211993121002', 'Sudiyanto S.Si., MM', 'sudiyanto', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', 'jPveUrvFJcKvApP0OtJKrl6ibcsowb3PRUHnQnQCUEpWSr1Iq6fLZrfLXU2C', 25, 2),
 (26, '196405111992031003', 'Ir. Pitono MAP', 'pitono', '', '$2y$10$AHABsyePbKWsCKro3R4qb.GvmO5F/ekF2Jo6Q3.S.efhaszh9nZHi', 'pJ3oJqNqMl9u1HKmjEHkjE4ii3PZ2Ex4m9Y3Wa6k4wStxsdosGXKqKiqUKar', 26, 2);
 
 --
@@ -941,12 +946,12 @@ ALTER TABLE `permohonan_data_bps`
 -- AUTO_INCREMENT for table `permohonan_data_nonbps`
 --
 ALTER TABLE `permohonan_data_nonbps`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `pl_company`
 --
 ALTER TABLE `pl_company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `pl_data`
 --
@@ -1003,30 +1008,30 @@ ALTER TABLE `status`
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `data_inventori`
+-- Ketidakleluasaan untuk tabel `data_inventori`
 --
 ALTER TABLE `data_inventori`
   ADD CONSTRAINT `Relationship51` FOREIGN KEY (`subjek_id`) REFERENCES `data_subjek` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `Relationship52` FOREIGN KEY (`operator_id`) REFERENCES `operator` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `Relationship52` FOREIGN KEY (`operator_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `data_kuesioner`
+-- Ketidakleluasaan untuk tabel `data_kuesioner`
 --
 ALTER TABLE `data_kuesioner`
   ADD CONSTRAINT `Relationship50` FOREIGN KEY (`subjek_id`) REFERENCES `data_subjek` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `pegawai`
+-- Ketidakleluasaan untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD CONSTRAINT `Relationship63` FOREIGN KEY (`unit_id`) REFERENCES `instansi` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `permohonan_data_bps`
+-- Ketidakleluasaan untuk tabel `permohonan_data_bps`
 --
 ALTER TABLE `permohonan_data_bps`
   ADD CONSTRAINT `Relasi1` FOREIGN KEY (`data_inventori_id`) REFERENCES `data_inventori` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -1035,7 +1040,7 @@ ALTER TABLE `permohonan_data_bps`
   ADD CONSTRAINT `Relationship62` FOREIGN KEY (`pegawai_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `permohonan_data_nonbps`
+-- Ketidakleluasaan untuk tabel `permohonan_data_nonbps`
 --
 ALTER TABLE `permohonan_data_nonbps`
   ADD CONSTRAINT `Relationship58` FOREIGN KEY (`operator_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -1043,18 +1048,18 @@ ALTER TABLE `permohonan_data_nonbps`
   ADD CONSTRAINT `permohonan_data_nonbps_ibfk_1` FOREIGN KEY (`data_inventori_id`) REFERENCES `data_inventori` (`id`);
 
 --
--- Constraints for table `pl_data`
+-- Ketidakleluasaan untuk tabel `pl_data`
 --
 ALTER TABLE `pl_data`
   ADD CONSTRAINT `Relationship44` FOREIGN KEY (`jenis_id`) REFERENCES `pl_jenis` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `Relationship45` FOREIGN KEY (`company_id`) REFERENCES `pl_company` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `Relationship46` FOREIGN KEY (`license_id`) REFERENCES `pl_license` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `Relationship54` FOREIGN KEY (`operator_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `Relationship64` FOREIGN KEY (`media_id`) REFERENCES `pl_media` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `relasikontakuser` FOREIGN KEY (`kontak_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `Relationship54` FOREIGN KEY (`operator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE SET NULL,
+  ADD CONSTRAINT `Relationship64` FOREIGN KEY (`media_id`) REFERENCES `pl_media` (`id`) ON DELETE CASCADE ON UPDATE SET NULL,
+  ADD CONSTRAINT `relasikontakuser` FOREIGN KEY (`kontak_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE SET NULL;
 
 --
--- Constraints for table `pl_instalasi`
+-- Ketidakleluasaan untuk tabel `pl_instalasi`
 --
 ALTER TABLE `pl_instalasi`
   ADD CONSTRAINT `Relationship53` FOREIGN KEY (`operator_id`) REFERENCES `operator` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -1063,19 +1068,19 @@ ALTER TABLE `pl_instalasi`
   ADD CONSTRAINT `Relationship57` FOREIGN KEY (`pl_data_id`) REFERENCES `pl_data` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `pl_transaksi`
+-- Ketidakleluasaan untuk tabel `pl_transaksi`
 --
 ALTER TABLE `pl_transaksi`
   ADD CONSTRAINT `Relationship49` FOREIGN KEY (`pl_data_id`) REFERENCES `pl_data` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `seksi`
+-- Ketidakleluasaan untuk tabel `seksi`
 --
 ALTER TABLE `seksi`
   ADD CONSTRAINT `Relationship9` FOREIGN KEY (`bidang_id`) REFERENCES `bidang` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `user`
+-- Ketidakleluasaan untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `Relationship7` FOREIGN KEY (`seksi_id`) REFERENCES `seksi` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
