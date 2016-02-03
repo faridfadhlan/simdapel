@@ -45,6 +45,10 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('jenis', 'JenisController@index');
     });
     
+    Route::group(['middleware' => ['roles','auth'],'roles' => ['admin', 'operator', 'user_bps']], function () {
+        Route::get('perangkat_lunak/get_manual/{manual}', 'PerangkatLunakController@get_manual');
+        Route::get('perangkatlunak/get_ajax_data', 'PerangkatLunakController@get_ajax_data');
+    });
     
     Route::group(['middleware' => ['roles','auth'],'roles' => ['admin', 'operator']], function () {
         Route::get('jenis/create', 'JenisController@create');

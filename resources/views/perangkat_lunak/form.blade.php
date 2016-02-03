@@ -15,7 +15,8 @@
                     </div>
                     <div class="form-group">
                       {{ Form::label('manual', 'Manual') }}
-                      {{ Form::textarea('manual', $value=$pl_data->manual, $attributes=array('class'=>'form-control','placeholder'=>'Manual','rows'=>'5')) }}
+                      {{ Form::file('manual', $attributes=array('class'=>'form-control')) }}
+                      <p class="help-block">{{ $pl_data->manual }}</p>
                     </div>
                   
                     <div class="form-group">

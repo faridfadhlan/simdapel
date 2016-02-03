@@ -18,15 +18,17 @@ class='active'
 @section('script_bawah')
 <script src="{{ asset('/public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('/public/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-<!--
+
 <script>
       $(function () {
-        $("#tabel1").DataTable({
-            ordering:false
+        $('#tabel1').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{{ URL::to('perangkatlunak/get_ajax_data') }}'
         });
       });
 </script>
--->
+
 @endsection
 
 @section('content')
@@ -61,27 +63,11 @@ class='active'
                             <th width='10%' style='text-align: center;vertical-align: center;'>Jumlah Media</th>
                             <th width='20%' style='text-align: center;vertical-align: center;'>Company</th>
                             <th width='20%' style='text-align: center;vertical-align: center;'>Lisensi</th>
-                            <th width='10%' style='text-align: center;vertical-align: center;'>Aksi</th>
+                            <th style='text-align: center;vertical-align: center;'>Manual</th>
                           </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($pl_data as $data)
-                          <tr>
-                            <td align='center'>{{ $data->kode }}</td>
-                            <td>{{ $data->nama }}</td>
-                            <td align='center'>{{ $data->jumlah_media }}</td>
-                            <td>{{ $data->company['nama_company'] }}</td>
-                            <td>{{ $data->license['nama_license'] }}</td>
-                            <td align='center'>
-                                <a href="{{ action('PerangkatLunakController@edit', ['id'=>$data->id]) }}" class="fa fa-edit"></a>
-                                <a href="{{ action('PerangkatLunakController@remove', ['id'=>$data->id]) }}" class="fa fa-remove"></a>
-                            </td>
-                          </tr>
-                        @endforeach
-                        </tbody>
+                        </thead>                        
                       </table>
-                    <div style='float:right;'>{{ $pl_data->render() }}</div>
-                    <div style='clear:both;'></div>
+                    
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
         </section><!-- /.content -->

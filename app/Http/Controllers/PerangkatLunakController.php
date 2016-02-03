@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Chumper\Datatable\Datatable;
-
-use App\Http\Requests;
+use Auth;
+use Datatables;
+use Response;
 use App\Http\Controllers\Controller;
 
 class PerangkatLunakController extends Controller
@@ -19,8 +19,8 @@ class PerangkatLunakController extends Controller
     }
     
     public function index() {
-        $pl_data = \App\PerangkatLunak::with('company','license')->paginate(10);
-        return view('perangkat_lunak.index', compact('pl_data'));
+        //$pl_data = \App\PerangkatLunak::with('company','license')->paginate(10);
+        return view('perangkat_lunak.index');
     }
     
     public function create() {
@@ -57,48 +57,67 @@ class PerangkatLunakController extends Controller
                 ]);
     }
     
-    public function update($id) {    
-        $perangkatlunak = \App\PerangkatLunak::find($id);       
-        $perangkatlunak->update(array(
-            'kode'=>  Input::get('kode'),
-            'nama'=>  Input::get('nama'),
-            'jumlah_media'=>  Input::get('jumlah_media'),
-            'manual'=>  Input::get('manual'),
-            'tgl_terima'=>  Input::get('tgl_terima'),
-            'media_id'=>  Input::get('media_id'),
-            'license_id'=>  Input::get('license_id'),
-            'jenis_id'=>  Input::get('jenis_id'),
-            'company_id'=>  Input::get('company_id'),
-            'tgl_expired'=>  Input::get('tgl_expired'),
-            'ket'=>  Input::get('ket'),
-            'operator_id'=>  Input::get('operator_id'),
-        ));
+    public function update(Request $request, $id) {  
+        
+        $perangkatlunak = \App\PerangkatLunak::find($id);
+        
+        $jenis_id_old = $perangkatlunak->jenis_id;
+        $manual_old = $perangkatlunak->manual;
+        
+        $manual = NULL;
+        
+        $perangkatlunak->jenis_id = $request->input('jenis_id');
+        $perangkatlunak->kode = $perangkatlunak->get_current_kode($jenis_id_old);
+        
+        if ($request->hasFile('manual')) {
+            $perangkatlunak->hapus_manual();
+            $filenya = $request->file('manual');
+            $manual = $perangkatlunak->kode.'.'.$filenya->getClientOriginalExtension();
+            $filenya->move('storage/manual', $manual);
+            $perangkatlunak->manual = $manual;
+        }
+        
+        else {
+            $perangkatlunak->need_rename($manual_old);
+        }
+        
+        
+        $perangkatlunak->nama = $request->input('nama');
+        $perangkatlunak->jumlah_media = $request->input('jumlah_media');
+        $perangkatlunak->tgl_terima = $request->input('tgl_terima');
+        $perangkatlunak->media_id = $request->input('media_id');
+        $perangkatlunak->license_id = $request->input('license_id');
+        $perangkatlunak->company_id = $request->input('company_id');
+        $perangkatlunak->tgl_expired = $request->input('tgl_expired');
+        $perangkatlunak->ket =  $request->input('ket');
+        $perangkatlunak->operator_id = Auth::user()->id;
+        $perangkatlunak->save();
         return redirect('perangkatlunak');
     }
     
-    public function save() {    
+    public function save(Request $request) {    
         $perangkatlunak = new \App\PerangkatLunak;     
-        $perangkatlunak->jenis_id = Input::get('jenis_id');  
-        $perangkatlunak->kode = $perangkatlunak->get_this_kode();
-        echo $perangkatlunak->kode;
-        /*
-        $perangkatlunak = new \App\PerangkatLunak;     
-        $perangkatlunak->jenis_id = Input::get('jenis_id');  
-        $perangkatlunak->kode = $perangkatlunak->get_next_kode();
-        $perangkatlunak->nama = Input::get('nama');
-        $perangkatlunak->jumlah_media = Input::get('jumlah_media');
-        $perangkatlunak->manual = Input::get('manual');
-        $perangkatlunak->tgl_terima = Input::get('tgl_terima');
-        $perangkatlunak->media_id = Input::get('media_id');
-        $perangkatlunak->license_id = Input::get('license_id');
-        $perangkatlunak->company_id = Input::get('company_id');
-        $perangkatlunak->tgl_expired = Input::get('tgl_expired');
-        $perangkatlunak->ket =  Input::get('ket');
-        $perangkatlunak->operator_id = '1';
-        $perangkatlunak->save();        
+        $perangkatlunak->jenis_id = $request->input('jenis_id');  
+        $perangkatlunak->kode = $perangkatlunak->get_new_kode();
+        $perangkatlunak->nama = $request->input('nama');
+        $perangkatlunak->jumlah_media = $request->input('jumlah_media');
+        $perangkatlunak->tgl_terima = $request->input('tgl_terima');
+        $perangkatlunak->media_id = $request->input('media_id');
+        $perangkatlunak->license_id = $request->input('license_id');
+        $perangkatlunak->company_id = $request->input('company_id');
+        $perangkatlunak->tgl_expired = $request->input('tgl_expired');
+        $perangkatlunak->ket =  $request->input('ket');
+        $perangkatlunak->operator_id = Auth::user()->id;
+        
+        if ($request->hasFile('manual')) {
+            $filenya = $request->file('manual');
+            $manual = $perangkatlunak->kode.'.'.$filenya->getClientOriginalExtension();
+            $filenya->move('storage/manual', $manual);
+            $perangkatlunak->manual = $manual;
+        }
+        
+        $perangkatlunak->save();
         return redirect('perangkatlunak');
-         * 
-         */
     }
     
     public function search() {
@@ -111,12 +130,9 @@ class PerangkatLunakController extends Controller
         return view('perangkat_lunak.test');
     }
     
-    public function getDatatable()
+    public function get_ajax_data()
     {
-        return \Chumper\Datatable\Datatable::collection(\App\PerangkatLunak::all(array('id','nama')))
-        ->showColumns('id', 'nama')
-        ->searchColumns('nama')
-        ->orderColumns('id','nama')
-        ->make();
+        $pl = \App\PerangkatLunak::select(['kode','nama','jumlah_media','company_id','license_id','manual']);
+        return Datatables::of($pl)->make();
     }
 }

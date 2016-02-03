@@ -37,8 +37,9 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
           </ol>
             <br />
             <div>
-                <a class="btn btn-block btn-primary" style="display:inline;" href="{{ URL::to('permohonan_data/create') }}">Buat Permohonan Data</a>
+                <a href="{{ URL::to('permohonan_data/create') }}" class="btn btn-default pull-left"><i class="fa fa-plus"></i> Buat Permohonan Data</a>
             </div>
+            <div class="clearfix"></div>
         </section>
 
         <!-- Main content -->

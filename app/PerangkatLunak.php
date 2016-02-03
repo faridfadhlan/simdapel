@@ -2,12 +2,14 @@
 
 namespace App;
 use DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
 class PerangkatLunak extends Model
 {
     use SearchableTrait;
+    
     protected $searchable = [
         'columns' => [
             'kode' => 10,
@@ -36,19 +38,41 @@ class PerangkatLunak extends Model
         return $this->belongsTo('\App\Jenis', 'jenis_id', 'id');
     }
     
-    public function get_this_kode() {
+    public function get_new_kode() {
         $tertinggi = DB::table($this->table)
-                     ->select(DB::raw('max(kode) as kode'))
+                     ->select(DB::raw('substring(max(kode),-3) as kode'))
                      ->where('jenis_id', '=', $this->jenis_id)
-                     ->get();
-        //$angkanol = array(0 => '000', 1=>'00', 2=>'0');
-        //$next_kode = intval($tertinggi->kode)+1;
-        return $tertinggi;//.':'.  intval($tertinggi);//->kode;
-        //return $tertinggi;
-        //$next_kode = intval($tertinggi->kode)+1;
-        //return $angkanol[strlen($next_kode)].$next_kode;
+                     ->first();
+        $angkanol = array(0 => '000', 1=>'00', 2=>'0');
+        $next_kode = (intval($tertinggi->kode)+1);
+        return $this->jenis_id.$angkanol[strlen($next_kode)].$next_kode;     
     }
     
+    public function get_current_kode($jenis_id_old) {
+        if($jenis_id_old == $this->jenis_id) {
+            return $this->kode;
+        }
+        else {
+            return $this->get_new_kode();
+        }
+    }
+    
+    public function hapus_manual() {
+        if(Storage::disk('manual')->has($this->manual) && $this->manual!=NULL) {
+            Storage::disk('manual')->delete($this->manual);
+            //print_r(Storage::disk('manual')->get($this->manual));
+            
+        }
+    }
+
+
+    public function need_rename($manual_old) {        
+        if($manual_old != $this->manual && $manual_old != NULL) {
+            Storage::disk('manual')->move($manual_old, $this->manual);
+            return true;
+        }
+        return false;
+    }
     /*
     public function subjek() {
         return $this->belongsTo(DataSubjek::class);

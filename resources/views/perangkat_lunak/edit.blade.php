@@ -39,7 +39,7 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
                     <div class="row">
                         <div class="col-md-6">
                 <!-- form start -->
-                {{ Form::open(array('route' => array('update_perangkatlunak', $pl_data->id), 'method'=>'PUT')) }}
+                {{ Form::open(array('route' => array('update_perangkatlunak', $pl_data->id), 'method'=>'PUT', 'files'=>true)) }}
 @include('perangkat_lunak.form')
 </div>
 </section>

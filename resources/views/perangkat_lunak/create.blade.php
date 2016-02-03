@@ -39,7 +39,7 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
                     <div class="row">
                         <div class="col-md-6">
                 <!-- form start -->
-                {{ Form::open(array('route' => array('simpan_perangkatlunak'), 'method'=>'POST')) }}
+                {{ Form::open(array('route' => array('simpan_perangkatlunak'), 'method'=>'POST', 'files'=>true)) }}
 
 @include('perangkat_lunak.form')
     </div>
