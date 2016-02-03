@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Auth;
 use Datatables;
-use Response;
+use URL;
 use App\Http\Controllers\Controller;
 
 class PerangkatLunakController extends Controller
@@ -132,7 +132,16 @@ class PerangkatLunakController extends Controller
     
     public function get_ajax_data()
     {
-        $pl = \App\PerangkatLunak::select(['kode','nama','jumlah_media','company_id','license_id','manual']);
-        return Datatables::of($pl)->make();
+        //$pl = \App\PerangkatLunak::select(['kode','nama','jumlah_media','company_id','license_id','manual']);
+        //pl = DB::table('pl_data')->select('kode','nama','jumlah_media','company_id','license_id','manual')->get();
+        $datas = \App\PerangkatLunak::join('pl_company', 'pl_data.company_id', '=', 'pl_company.id')
+                ->join('pl_license', 'pl_data.license_id', '=', 'pl_license.id')
+                ->select(['pl_data.id','kode', 'nama', 'jumlah_media', 'pl_company.nama_company', 'pl_license.nama_license', 'manual']);
+        return Datatables::of($datas)
+                ->editColumn('manual', '<a href="#">{{ $manual }}</a>')
+                ->addColumn('action', function ($data) {
+                        return '<a href="'.URL::to('perangkatlunak/edit/'.$data->id).'"><i class="fa fa-edit"></i></a><a href="#"><i class="fa fa-remove"></i></a>';
+                    })
+                ->make(true);
     }
 }

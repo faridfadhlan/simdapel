@@ -24,7 +24,16 @@ class='active'
         $('#tabel1').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ URL::to('perangkatlunak/get_ajax_data') }}'
+            ajax: '{{ URL::to('perangkatlunak/get_ajax_data') }}',
+            columns: [
+                { data: 'kode', name: 'kode' },
+                { data: 'nama', name: 'nama' },
+                { data: 'jumlah_media', name: 'jumlah_media' },
+                { data: 'nama_company', name: 'pl_company.nama_company' },
+                { data: 'nama_license', name: 'pl_license.nama_license' },
+                { data: 'manual', name: 'manual' },
+                { data: 'action', name: 'action', orderable: false, searchable: false}
+            ]
         });
       });
 </script>
@@ -64,6 +73,7 @@ class='active'
                             <th width='20%' style='text-align: center;vertical-align: center;'>Company</th>
                             <th width='20%' style='text-align: center;vertical-align: center;'>Lisensi</th>
                             <th style='text-align: center;vertical-align: center;'>Manual</th>
+                            <th style='text-align: center;vertical-align: center;'>Aksi</th>
                           </tr>
                         </thead>                        
                       </table>
