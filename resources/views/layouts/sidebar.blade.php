@@ -51,9 +51,9 @@
                 <li {{ Request::is('subjek*')?'class=active':'' }} ><a href="{{ action('SubjekController@index')}}"><i class="fa fa-circle-o"></i>Subjek Data Inventori</a></li>
               </ul>
             </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-table"></i> <span>Master Pegawai</span>
+            <li class="treeview{{ Request::is('user*')?' active':'' }}">
+              <a href="{{ URL::to('user/index') }}">
+                <i class="fa fa-table"></i> <span>Master Pengguna</span>
               </a>              
             </li>
             <li class="treeview">
