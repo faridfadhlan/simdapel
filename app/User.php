@@ -16,7 +16,20 @@ class User extends Authenticatable
     protected $primaryKey = 'id';
     
     protected $fillable = [
-        'name', 'email', 'password',
+        'nama', 
+        'username', 
+        'email', 
+        'password',
+        'jenis_identitas',
+        'no_identitas',
+        'umur',
+        'jk',
+        'telp',
+        'pendidikan_terakhir',
+        'alamat',
+        'pekerjaan',
+        'instansi_pekerjaan',
+        'role_id'
     ];
 
     /**
@@ -32,6 +45,10 @@ class User extends Authenticatable
         return $this->belongsTo('\App\Seksi', 'seksi_id', 'id');
     }
     
+    public function getRole() {
+        return $this->belongsTo('\App\Role', 'role_id', 'id');
+    }
+    
     public function role()
     {
             return $this->hasOne('App\Role', 'id', 'role_id');
@@ -40,8 +57,6 @@ class User extends Authenticatable
     public function hasRole($roles)
     {
             $this->have_role = $this->getUserRole();
-
-            
 
             if(is_array($roles)){
                     foreach($roles as $need_role){

@@ -45,12 +45,17 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('jenis', 'JenisController@index');
     });
     
-    Route::group(['middleware' => ['roles','auth'],'roles' => ['admin', 'operator', 'user_bps']], function () {
+    Route::group(['middleware' => ['roles','auth'],'roles' => ['administrator', 'operator', 'user_bps']], function () {
         Route::get('perangkat_lunak/get_manual/{manual}', 'PerangkatLunakController@get_manual');
         Route::get('perangkatlunak/get_ajax_data', 'PerangkatLunakController@get_ajax_data');
     });
     
-    Route::group(['middleware' => ['roles','auth'],'roles' => ['admin', 'operator']], function () {
+    Route::group(['middleware' => ['roles','auth'],'roles' => ['administrator']], function () {
+        Route::get('user/index', 'UserController@index');
+        Route::get('user/create', 'UserController@create');
+    });
+    
+    Route::group(['middleware' => ['roles','auth'],'roles' => ['administrator', 'operator']], function () {
         Route::get('jenis/create', 'JenisController@create');
         Route::get('jenis/edit/{id}', 'JenisController@edit');
         Route::get('jenis/remove/{id}', 'JenisController@remove');

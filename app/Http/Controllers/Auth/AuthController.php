@@ -22,6 +22,8 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    
+    //Kolom username
     protected $username = 'username';
     //protected $loginPath = 'auth/login';
 
@@ -51,9 +53,19 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'nama' => 'required|max:255',
+            'username' => 'required|max:15|unique:user',
+            'email' => 'required|email|max:255|unique:user',
             'password' => 'required|confirmed|min:6',
+            'jenis_identitas' => 'required',
+            'no_identitas' => 'required',
+            'umur' => 'required',
+            'jk' => 'required',
+            'pendidikan_terakhir' => 'required',
+            'alamat' => 'required',
+            'telp' => 'required',
+            'pekerjaan' => 'required',
+            'instansi_pekerjaan' => 'required',
         ]);
     }
 
@@ -66,9 +78,20 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'nama' => $data['nama'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'jenis_identitas' => $data['jenis_identitas'],
+            'no_identitas' => $data['no_identitas'],
+            'umur'=>$data['umur'],
+            'jk'=>$data['jk'],
+            'pendidikan_terakhir'=>$data['pendidikan_terakhir'],
+            'alamat'=>$data['alamat'],
+            'telp'=>$data['telp'],
+            'pekerjaan'=>$data['pekerjaan'],
+            'instansi_pekerjaan'=>$data['instansi_pekerjaan'],
+            'role_id' => (isset($data['role_id']))?$data['role_id']:'3',
         ]);
     }
     

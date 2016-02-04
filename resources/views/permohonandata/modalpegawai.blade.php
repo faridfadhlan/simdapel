@@ -20,6 +20,7 @@
             </thead>
             <tbody>
                 @foreach($users as $user)
+                @if( $user->nip != NULL )
                 <tr>
                     <td>{{ $user->nip }}</td>
                     <td>{{ $user->nama }}</td>
@@ -27,6 +28,7 @@
                     <td>{{ $user->seksi->bidang_id }}</td>
                     <td><a href='#' onclick="return pilih_pegawai('{{ $user->id }}', '{{ $user->nama }}', '{{$user->seksi->nama_seksi }}')">Pilih</a></td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>

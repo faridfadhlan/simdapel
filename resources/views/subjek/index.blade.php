@@ -23,9 +23,11 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
             <li class="active">Subjek Data Inventori</li>
           </ol>
             <br />
+            @if(Auth::user()->role_id=='1' || Auth::user()->role_id=='4')
             <div>
                 <a class="btn btn-block btn-primary" style="display:inline;" href="{{ action('SubjekController@create') }}">Tambah Subjek Data Inventori</a>
             </div>
+            @endif
         </section>
 
         <!-- Main content -->
