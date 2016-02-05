@@ -4,7 +4,7 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
 @endsection
 
 @section('judul')
-Tambah Pengguna
+Edit Pengguna
 @endsection
 
 
@@ -18,12 +18,12 @@ Tambah Pengguna
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li>Master Pengguna</li>
-            <li class="active">Tambah Pengguna</li>
+            <li class="active">Edit Pengguna</li>
           </ol>
         </section>
         <section class="content">
               <div class="box box-primary">
-                    @include('user.form')
+                    @include('user.form_update')
               </div>
         </section>
 </div>

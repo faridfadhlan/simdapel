@@ -44,7 +44,7 @@
                       {{ Form::textarea('keterangan', $value=$data->keterangan, $attributes=array('class'=>'form-control', 'placeholder'=>'Keterangan', 'rows'=>'5')) }}
                     </div>
                     <div class="form-group">
-                      {{ Form::label('nama_layout', 'Nama Layout') }}
-                      {{ Form::text('nama_layout', $value=$data->nama_layout, $attributes=array('class'=>'form-control','placeholder'=>'Nama Layout')) }}
+                      {{ Form::label('nama_layout', 'Layout Data') }}
+                      {{ Form::file('nama_layout', $attributes=['class'=>'form-control']) }}
                     </div>
                     

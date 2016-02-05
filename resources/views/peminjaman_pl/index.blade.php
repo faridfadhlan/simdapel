@@ -9,16 +9,16 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
 <div class="content-wrapper">
         <section class="content-header">
           <h1>
-            Master Pengguna
+            Peminjaman Perangkat Lunak
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Master Pengguna</li>
-            <li class="active">Data Pengguna</li>
+            <li>Master Peminjaman Perangkat Lunak</li>
+            <li class="active">Data Peminjaman Perangkat Lunak</li>
           </ol>
             <br />
             <div>
-                <a class="btn btn-block btn-primary" style="display:inline;" href="{{ URL::to('user/create') }}">Tambah Pengguna</a>
+                <a class="btn btn-block btn-primary" style="display:inline;" href="{{ URL::to('peminjaman_perangkatlunak/create') }}">Tambah Peminjaman</a>
             </div>
         </section>
         <section class="content">
@@ -30,31 +30,29 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
                       <tr>
                           <th class="text-center">ID</th>
                         <th class="text-center">Nama</th>
-                        <th class="text-center">Username</th>
-                        <th class="text-center">Email</th>
-                        <th class="text-center">Seksi</th>
-                        <th class="text-center">Role</th>
+                        <th class="text-center">Perangkat Lunak</th>
+                        <th class="text-center">Tanggal Pinjam</th>
+                        <th class="text-center">Tanggal Kembali</th>
                         <th class="text-center">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $user)
+                    @foreach($transaksis as $transaksi)
                       <tr>
-                          <td class="text-center">{{ $user->id }}</td>
-                        <td>{{ $user->nama }}</td>
-                        <td>{{ $user->username }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->seksi_id!=NULL?$user->seksi->nama_seksi:'' }}</td>
-                        <td>{{ $user->getRole->description }}</td>
+                          <td class="text-center">{{ $transaksi->id }}</td>
+                        <td>{{ $transaksi->peminjam->nama }}</td>
+                        <td>{{ $transaksi->perangkatlunak->nama }}</td>
+                        <td>{{ $transaksi->tgl_pinjam }}</td>
+                        <td>{{ $transaksi->tgl_kembali }}</td>
                         <td align="center">      
-                            {{ link_to('user/edit/'.$user->id, $title = '', $attributes = array('class'=>'fa fa-edit')) }}
-                            {{ link_to('user/remove/'.$user->id, $title = '', $attributes = array('class'=>'fa fa-remove', 'onclick'=>'return confirm("Hapus '.$user->nama.'?")')) }}
+                            {{ link_to('user/edit/'.$transaksi->id, $title = '', $attributes = array('class'=>'fa fa-edit')) }}
+                            {{ link_to('user/remove/'.$transaksi->id, $title = '', $attributes = array('class'=>'fa fa-remove', 'onclick'=>'return confirm("Hapus '.$transaksi->id.'?")')) }}
                         </td>
                       </tr>
                     @endforeach
                     </tbody>
                   </table>
-                    <div style='float:right;'>{{ $users->render() }}</div>
+                    <div style='float:right;'>{{ $transaksis->render() }}</div>
                     <div style='clear:both;'></div>
                 </div>
               </div>

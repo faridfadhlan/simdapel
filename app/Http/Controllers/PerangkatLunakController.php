@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use Auth;
 use Datatables;
 use URL;
+use Illuminate\Support\Facades\Cookie;
 use App\Http\Controllers\Controller;
 
 class PerangkatLunakController extends Controller
@@ -143,5 +144,10 @@ class PerangkatLunakController extends Controller
                         return '<a href="'.URL::to('perangkatlunak/edit/'.$data->id).'"><i class="fa fa-edit"></i></a><a href="#"><i class="fa fa-remove"></i></a>';
                     })
                 ->make(true);
+    }
+    
+    public function tambahkan_keranjang($id) {
+        Cookie::queue('pl_id', $id, '60');
+        return redirect('peminjaman_perangkatlunak/create');
     }
 }

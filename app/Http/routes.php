@@ -48,11 +48,17 @@ Route::group(['middleware' => 'web'], function () {
     Route::group(['middleware' => ['roles','auth'],'roles' => ['administrator', 'operator', 'user_bps']], function () {
         Route::get('perangkat_lunak/get_manual/{manual}', 'PerangkatLunakController@get_manual');
         Route::get('perangkatlunak/get_ajax_data', 'PerangkatLunakController@get_ajax_data');
+        Route::get('peminjaman_perangkatlunak/index', 'PeminjamanPerangkatLunakController@index');
+        Route::get('perangkatlunak/tambahkan_keranjang/{id}', 'PerangkatLunakController@tambahkan_keranjang');
+        Route::get('peminjaman_perangkatlunak/create', 'PeminjamanPerangkatLunakController@create');
     });
     
     Route::group(['middleware' => ['roles','auth'],'roles' => ['administrator']], function () {
         Route::get('user/index', 'UserController@index');
         Route::get('user/create', 'UserController@create');
+        Route::post('user/save', 'UserController@save');
+        Route::get('user/edit/{id}', 'UserController@edit');
+        Route::put('user/update/{id}', 'UserController@update');
     });
     
     Route::group(['middleware' => ['roles','auth'],'roles' => ['administrator', 'operator']], function () {
