@@ -141,13 +141,16 @@ class PerangkatLunakController extends Controller
         return Datatables::of($datas)
                 ->editColumn('manual', '<a href="#">{{ $manual }}</a>')
                 ->addColumn('action', function ($data) {
-                        return '<a href="'.URL::to('perangkatlunak/edit/'.$data->id).'"><i class="fa fa-edit"></i></a><a href="#"><i class="fa fa-remove"></i></a>';
+                        return '<a href="'.
+                                URL::to('perangkatlunak/edit/'.$data->id).'"><i class="fa fa-edit"></i></a>'
+                                . '<a href="#"><i class="fa fa-remove"></i></a>'
+                                . '<a href="'.URL::to('perangkatlunak/tambahkan_keranjang/'.$data->id).'"><i class="fa fa-cart-plus"></i></a>';
                     })
                 ->make(true);
     }
     
     public function tambahkan_keranjang($id) {
-        Cookie::queue('pl_id', $id, '60');
+        Cookie::queue('pl_id', $id, '5');
         return redirect('peminjaman_perangkatlunak/create');
     }
 }

@@ -19,8 +19,7 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
             
         </section>
         <section class="content">
-              <div class="box box-primary">
-                  
+              <div class="box box-primary">                  
                 <div class="box-body">
                     @include('peminjaman_pl.form')
               </div>

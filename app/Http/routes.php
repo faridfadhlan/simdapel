@@ -147,6 +147,10 @@ Route::group(['middleware' => 'web'], function () {
         Route::post('permohonan_data/simpan', 'PermohonanDataBPSController@simpan');
         Route::post('permohonan_data/simpan_individu', 'PermohonanDataBPSController@simpan_individu');
         Route::post('permohonan_data/simpan_instansi', 'PermohonanDataBPSController@simpan_instansi');
+        
+        Route::get('peminjaman_perangkatlunak/get_seksi_from_bidang/{id}', 'PeminjamanPerangkatLunakController@get_seksi_from_bidang');
+        Route::get('peminjaman_perangkatlunak/get_user_from_seksi/{id}', 'PeminjamanPerangkatLunakController@get_user_from_seksi');
+        Route::post('peminjaman_perangkatlunak/save', 'PeminjamanPerangkatLunakController@save');
     });
     
 });

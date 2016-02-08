@@ -3,6 +3,22 @@
 Sistem Informasi Data Inventori dan Perangkat Lunak
 @endsection
 
+@section('script_atas')
+<link rel="stylesheet" href="{{ asset('/public/plugins/datatables/dataTables.bootstrap.css') }}">
+@endsection
+
+@section('script_bawah')
+<script src="{{ asset('/public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/public/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+
+<script>
+      $(function () {
+        $('#tabel1').DataTable({
+            'lengthChange':false
+        });
+      });
+</script>
+@endsection
 
 
 @section('content')
@@ -33,6 +49,7 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
                         <th class="text-center">Perangkat Lunak</th>
                         <th class="text-center">Tanggal Pinjam</th>
                         <th class="text-center">Tanggal Kembali</th>
+                        <th class="text-center">Status</th>
                         <th class="text-center">Aksi</th>
                       </tr>
                     </thead>
@@ -42,8 +59,9 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
                           <td class="text-center">{{ $transaksi->id }}</td>
                         <td>{{ $transaksi->peminjam->nama }}</td>
                         <td>{{ $transaksi->perangkatlunak->nama }}</td>
-                        <td>{{ $transaksi->tgl_pinjam }}</td>
-                        <td>{{ $transaksi->tgl_kembali }}</td>
+                        <td class="text-center">{{ datetime_to_tanggal($transaksi->tgl_pinjam) }}</td>
+                        <td class="text-center">{{ datetime_to_tanggal($transaksi->tgl_targetkembali) }}</td>
+                        <td>{{ $transaksi->tgl_targetkembali==NULL?'Software digandakan':($transaksi->tgl_kembali==NULL?'Belum Kembali':'Sudah Kembali') }}</td>
                         <td align="center">      
                             {{ link_to('user/edit/'.$transaksi->id, $title = '', $attributes = array('class'=>'fa fa-edit')) }}
                             {{ link_to('user/remove/'.$transaksi->id, $title = '', $attributes = array('class'=>'fa fa-remove', 'onclick'=>'return confirm("Hapus '.$transaksi->id.'?")')) }}
@@ -52,8 +70,6 @@ Sistem Informasi Data Inventori dan Perangkat Lunak
                     @endforeach
                     </tbody>
                   </table>
-                    <div style='float:right;'>{{ $transaksis->render() }}</div>
-                    <div style='clear:both;'></div>
                 </div>
               </div>
         </section>
